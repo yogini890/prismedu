@@ -1,0 +1,81 @@
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding-right: .65rem !important;
+  padding-left: .65rem !important;
+  font-size: 14px !important;
+  font-weight: 600;
+  letter-spacing: .01em;
+  line-height: 1;
+  transition: color 250ms ease, background-color 250ms ease;
+}
+
+.nav-link::after {
+  position: absolute;
+  right: .5rem;
+  bottom: .35rem;
+  left: .5rem;
+  height: 3px;
+  border-radius: 999px;
+  background: #eeb640;
+  content: "";
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 250ms ease;
+}
+
+@media (min-width: 1440px) {
+  .nav-link {
+    padding-right: .75rem !important;
+    padding-left: .75rem !important;
+    font-size: 17px !important;
+  }
+}
+
+.nav-link:hover::after,
+.nav-link.is-active::after {
+  transform: scaleX(1);
+}
+
+.bus-road {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  overflow: hidden;
+  border-top: 1px dashed rgba(16, 38, 63, .16);
+  pointer-events: none;
+}
+
+.school-bus {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  color: #d99a16;
+  fill: #f6c453;
+  filter: drop-shadow(0 1px 1px rgba(16, 38, 63, .18));
+  animation: schoolBusDrive 15s linear infinite;
+}
+
+@keyframes schoolBusDrive {
+  from { transform: translateX(-30px); }
+  to { transform: translateX(calc(100vw + 30px)); }
+}
+
+@media (max-width: 639px) {
+  .school-bus { display: none; }
+}
+
+@media (min-width: 1280px) {
+  header a[title="Login / Register"]:has(> span.xl\:hidden) { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .school-bus {
+    left: 1rem;
+    animation: none;
+    transform: none;
+  }
+}
