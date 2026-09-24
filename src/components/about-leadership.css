@@ -1,0 +1,8 @@
+.about-page-redesign .about-leadership-grid{grid-template-columns:minmax(0,1fr)}
+.about-leadership-grid .about-detailed-profile{min-width:0}
+.about-leadership-grid .about-detailed-profile>img{height:360px;object-fit:contain;object-position:center;background:#eef2f5}
+.about-leadership-grid .about-detailed-profile>div{padding:1.5rem}
+.about-leadership-grid .about-profile-copy p{font-size:.9375rem;line-height:1.8}
+.about-leadership-grid .about-expertise-list{margin-top:1rem}
+@media(min-width:1024px){.about-page-redesign .about-leadership-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:479px){.about-leadership-grid .about-detailed-profile>img{height:320px}.about-leadership-grid .about-detailed-profile>div{padding:1.25rem}}

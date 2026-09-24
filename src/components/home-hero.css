@@ -1,0 +1,160 @@
+/* Homepage slideshow only. One image and one continuous shade per slide. */
+.prism-home-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #10263f;
+  color: #fff;
+}
+.prism-home-hero-stage {
+  display: grid;
+  min-height: clamp(560px, 70svh, 760px);
+}
+.prism-home-hero-slide {
+  position: relative;
+  grid-area: 1 / 1;
+  min-width: 0;
+  display: flex;
+  isolation: isolate;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .65s ease, visibility 0s .65s;
+}
+.prism-home-hero-slide.is-active {
+  z-index: 1;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity .65s ease, visibility 0s;
+}
+.prism-home-hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--hero-position, center);
+}
+.prism-home-hero-shade {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(8, 18, 28, .72), rgba(8, 18, 28, .08));
+}
+.prism-home-hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  width: min(1320px, 100%);
+  min-width: 0;
+  margin-inline: auto;
+  padding: clamp(3rem, 6svh, 5rem) clamp(3.8rem, 7vw, 6rem) 6.25rem;
+}
+.prism-home-hero-content > p,
+.prism-home-hero-content > h1,
+.prism-home-hero-description,
+.prism-home-hero-points,
+.prism-home-hero-actions {
+  max-width: min(650px, 65%);
+}
+.prism-home-hero-content > p {
+  color: #f3c35d;
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-shadow: 0 2px 8px rgba(0,0,0,.6);
+}
+.prism-home-hero-content h1 {
+  margin-top: 1rem;
+  color: #fffdf7;
+  font-size: clamp(2rem, 4.2vw, 4.75rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -.035em;
+  text-shadow: 0 2px 10px rgba(0,0,0,.55);
+}
+.prism-home-hero-description {
+  margin-top: 1.15rem;
+  color: #fff;
+  font-size: clamp(.95rem, 1.4vw, 1.15rem);
+  line-height: 1.7;
+  text-shadow: 0 1px 5px rgba(0,0,0,.75);
+}
+.prism-home-hero-points { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.25rem; }
+.prism-home-hero-points span {
+  border: 1px solid rgba(255,255,255,.24);
+  border-radius: 999px;
+  background: rgba(5,25,48,.42);
+  padding: .5rem .75rem;
+  color: #fff;
+  font-size: .72rem;
+  font-weight: 700;
+}
+.prism-home-hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.65rem; }
+.prism-home-hero-actions a { box-shadow: 0 8px 25px rgba(0,0,0,.16); }
+.prism-home-hero-actions a:active { transform: translateY(1px); }
+.prism-home-hero-actions a:focus-visible,
+.prism-home-hero-arrow:focus-visible,
+.prism-home-hero-dots button:focus-visible { outline: 3px solid #f3c35d; outline-offset: 3px; }
+.prism-home-hero-arrow {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  transform: translateY(-50%);
+  border: 1px solid rgba(255,255,255,.4);
+  border-radius: 50%;
+  background: rgba(5,24,47,.76);
+  color: #fff;
+  box-shadow: 0 6px 22px rgba(0,0,0,.2);
+  transition: background-color .2s ease;
+}
+.prism-home-hero-arrow:hover { background: #eeb640; color: #10263f; }
+.prism-home-hero-arrow.is-previous { left: 1rem; }
+.prism-home-hero-arrow.is-next { right: 1rem; }
+.prism-home-hero-dots {
+  position: absolute;
+  z-index: 3;
+  bottom: 1.15rem;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: rgba(5,24,47,.74);
+  padding: .65rem .8rem;
+}
+.prism-home-hero-dots button { width: 10px; height: 10px; border-radius: 999px; background: rgba(255,255,255,.5); transition: width .2s ease, background-color .2s ease; }
+.prism-home-hero-dots button.is-active { width: 32px; background: #eeb640; }
+@media (min-width: 768px) and (max-width: 1024px) {
+  .prism-home-hero-stage { min-height: clamp(540px, 70svh, 680px); }
+  .prism-home-hero-content { padding-inline: clamp(3.8rem, 7vw, 5rem); }
+  .prism-home-hero-content > p, .prism-home-hero-content > h1,
+  .prism-home-hero-description, .prism-home-hero-points, .prism-home-hero-actions { max-width: 78%; }
+}
+@media (max-width: 767px) {
+  .prism-home-hero-stage { min-height: clamp(576px, 78svh, 704px); }
+  .prism-home-hero-media { object-position: var(--hero-mobile-position, center); }
+  .prism-home-hero-shade { background: linear-gradient(90deg, rgba(8,18,28,.68), rgba(8,18,28,.3)); }
+  .prism-home-hero-content { padding: 2.5rem 1.25rem 6.5rem; }
+  .prism-home-hero-content > p, .prism-home-hero-content > h1,
+  .prism-home-hero-description, .prism-home-hero-points, .prism-home-hero-actions { max-width: 100%; }
+  .prism-home-hero-content h1 { font-size: clamp(1.85rem, 8.5vw, 2.8rem); }
+  .prism-home-hero-description { margin-top: .85rem; font-size: .95rem; line-height: 1.6; }
+  .prism-home-hero-points { margin-top: 1rem; }
+  .prism-home-hero-actions { width: 100%; flex-direction: column; margin-top: 1.25rem; }
+  .prism-home-hero-actions a { width: 100%; }
+  .prism-home-hero-arrow { top: auto; bottom: 1.1rem; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .prism-home-hero-slide, .prism-home-hero-slide.is-active, .prism-home-hero-arrow, .prism-home-hero-dots button { transition: none; }
+}
+

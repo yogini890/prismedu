@@ -4,21 +4,45 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "node scripts/dev.js",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "dev:web": "vite",
+    "dev:api": "node --env-file-if-exists=.env --watch server/index.js",
+    "start": "node --env-file-if-exists=.env server/index.js",
+    "db:migrate": "node --env-file-if-exists=.env server/seed.js",
+    "admin:set": "node --env-file-if-exists=.env server/admin.js",
+    "test": "node --test tests/*.test.js",
+    "test:browser": "node scripts/test-browser.js",
+    "lint": "eslint server shared tests src/components/SchoolLandSystem.jsx src/components/SchoolMaterialSystem.jsx vite.config.js scripts",
+    "admin:setup": "powershell -NoProfile -File scripts/admin-setup.ps1",
+    "test:admin": "node --test tests/admin-setup.test.js"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
-    "vite": "latest",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.0",
+    "helmet": "^8.3.0",
+    "lucide-react": "latest",
+    "multer": "^2.4.0",
+    "nodemailer": "^10.0.9",
     "react": "latest",
     "react-dom": "latest",
     "react-router-dom": "latest",
-    "lucide-react": "latest"
+    "sharp": "^0.35.4",
+    "vite": "latest"
   },
   "devDependencies": {
-    "tailwindcss": "^3.4.17",
+    "@eslint/js": "^9.39.5",
+    "@playwright/test": "^1.63.0",
+    "autoprefixer": "latest",
+    "eslint": "^9.39.5",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^17.12.0",
     "postcss": "latest",
-    "autoprefixer": "latest"
+    "tailwindcss": "^3.4.17"
+  },
+  "engines": {
+    "node": ">=22.16"
   }
 }

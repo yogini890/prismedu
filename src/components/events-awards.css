@@ -1,0 +1,92 @@
+/* Events & Awards only; photographs and the original poster remain unaltered. */
+.events-awards-page { color:#10263f; background:#fffdf7; overflow-wrap:break-word; }
+.events-awards-page > section { position:relative; isolation:isolate; padding-block:clamp(3rem,5vw,5rem); border-bottom:1px solid #dce5e9; background-color:#f8f7f0; background-size:cover; background-position:center; }
+.events-awards-page .wrap { position:relative; min-width:0; }
+.events-awards-page .section-heading { color:#10263f; font-size:clamp(1.8rem,3.2vw,3rem); line-height:1.15; }
+.events-awards-page .section-kicker { color:#805413; letter-spacing:.16em; }
+.events-awards-page .text-slate-600 { color:#344b60; }
+.events-awards-page :is(a,button,input,select,textarea):focus-visible { outline:3px solid #146b8c; outline-offset:4px; }
+.events-awards-page :is(input,select,textarea) { max-width:100%; }
+.events-awards-page :is(.btn,.cta-outline) { text-align:center; white-space:normal; justify-content:center; }
+.events-awards-page .cta-outline { color:#10263f; background:#ffffffed; border:1px solid #657c8d; }
+.events-awards-page .cta-outline:hover { background:#f8e8b9; border-color:#9c6919; }
+.events-awards-page .events-awards-hero { background-image:linear-gradient(100deg,rgba(255,251,238,.95),rgba(233,246,249,.55)),url('/images/prism-official/school-workshop.jpg'); }
+.events-awards-page .events-hero-grid { display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:clamp(2rem,4vw,4rem); align-items:center; }
+.events-awards-page .events-awards-hero h1 { color:#10263f; font-size:clamp(2.2rem,4.1vw,4rem); font-weight:800; line-height:1.06; letter-spacing:-.035em; }
+.events-awards-page .events-tagline { margin-top:1.25rem; color:#805413; font-size:1.15rem; font-weight:750; }
+.events-awards-page .events-tagline span { padding-inline:.25rem; }
+.events-awards-page .events-hero-description { color:#344b60; }
+.events-awards-page .event-point { display:inline-flex; align-items:center; gap:.5rem; padding:.65rem .8rem; border:1px solid #d5c89f; border-radius:999px; background:#fffdf6ed; font-size:.76rem; font-weight:700; }
+.events-awards-page .event-point svg { flex:none; color:#956215; }
+.events-awards-page .events-hero-visual { min-width:0; width:100%; margin:0; padding:clamp(.5rem,1vw,.85rem); border:1px solid #d8b866; border-radius:1.5rem; background:#fff; box-shadow:0 22px 55px #173e5b24; animation:events-poster-rise .8s ease-out both,events-poster-glow 6s ease-in-out .8s infinite; transition:transform .3s ease; }
+.events-awards-page .events-hero-visual img { display:block; width:100%; height:auto; aspect-ratio:1121/1403; object-fit:contain; border-radius:.9rem; }
+.events-awards-page .events-hero-visual figcaption { color:#415567; text-align:center; font-size:.75rem; line-height:1.5; padding:.75rem .25rem .15rem; }
+.events-awards-page .events-network { background-image:linear-gradient(100deg,#edf7f8ed,#f9fcfbc4),url('/images/prism-official/school-community.jpg'); }
+.events-awards-page .events-highlights { background-image:linear-gradient(110deg,#fff8e9eb,#fffaf2c2),url('/images/events-awards/education-conclave-recognition.jpg'); }
+.events-awards-page :is(.event-network-card,.event-highlight-card) { border:1px solid #d7e1e6; border-radius:1.15rem; background:#ffffffed; padding:1.35rem; box-shadow:0 8px 24px #163b5310; transition:transform .25s,box-shadow .25s; }
+.events-awards-page .event-network-card { display:flex; align-items:flex-start; gap:.8rem; }
+.events-awards-page :is(.event-network-card,.event-highlight-card) svg { flex:none; color:#916017; }
+.events-awards-page :is(.event-network-card,.event-highlight-card) h3 { font-size:1rem; line-height:1.45; font-weight:750; }
+.events-awards-page .event-highlight-card h3 { margin-top:1rem; }
+.events-awards-page .event-highlight-card p { margin-top:.6rem; color:#415567; font-size:.88rem; line-height:1.7; }
+.events-awards-page .event-vendor-section { background-image:linear-gradient(100deg,#f0f8f5e6,#eaf5f1ba),url('/images/prism-official/school-material-marketplace-background.png'); }
+.events-awards-page .vendor-area { display:flex; align-items:center; gap:.8rem; min-height:66px; padding:1rem; border:1px solid #c6d9d2; border-radius:1rem; background:#fffffff0; font-size:.88rem; font-weight:700; box-shadow:0 5px 16px #193d3010; }
+.events-awards-page .vendor-area svg { flex:none; color:#24684f; }
+.events-awards-page .events-information { background-image:linear-gradient(100deg,#f7f4e9eb,#fffdf6bd),url('/images/prism-official/school-land-location-background.png'); }
+.events-awards-page .event-info-panel { overflow:hidden; border:1px solid #d4dfe5; border-radius:1.25rem; background:#fffffff0; box-shadow:0 12px 32px #163b5312; }
+.events-awards-page .event-info-panel div { display:grid; grid-template-columns:130px minmax(0,1fr); gap:1rem; padding:1rem 1.25rem; border-bottom:1px solid #e1e8eb; }
+.events-awards-page .event-info-panel div:last-child { border:0; }
+.events-awards-page .event-info-panel dt { font-size:.76rem; font-weight:750; letter-spacing:.06em; text-transform:uppercase; color:#4b6274; }
+.events-awards-page .event-info-panel dd { font-weight:650; }
+.events-awards-page .events-registration { background-image:linear-gradient(110deg,#eef7f5d6,#edf4fad1),url('/images/prism-official/school-community.jpg'); }
+.events-awards-page .events-form-card { max-width:1000px; margin-inline:auto; border:1px solid #ccdcd9; border-radius:1.5rem; padding:clamp(1.25rem,4vw,3rem); background:#ffffffed; box-shadow:0 16px 45px #143b4f1a; scroll-margin-top:130px; }
+.events-awards-page .events-form-card label { font-size:.85rem; font-weight:650; color:#10263f; }
+.events-awards-page .events-form-card .field { background:#fff; border-color:#9babb7; }
+.events-awards-page .awards-recognition { scroll-margin-top:110px; background-image:linear-gradient(110deg,#fff9e9e3,#f7f2e4c4),url('/images/events-awards/education-conclave-recognition.jpg'); }
+.events-awards-page .award-gallery-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.5rem; margin-top:2.5rem; }
+.events-awards-page .award-gallery-item { display:flex; flex-direction:column; min-width:0; padding:.75rem; border:1px solid #d8d4c2; border-radius:1.25rem; background:#fff; text-align:left; box-shadow:0 12px 30px #3c331719; transition:transform .25s,box-shadow .25s; }
+.events-awards-page .award-gallery-item img { width:100%; height:auto; aspect-ratio:3/4; object-fit:contain; background:#f5f4ee; border-radius:.75rem; }
+.events-awards-page .award-gallery-item > span { display:flex; align-items:flex-start; gap:.6rem; padding:1rem .25rem .5rem; font-size:.87rem; line-height:1.6; font-weight:650; }
+.events-awards-page .award-gallery-item > span svg { flex:none; margin-top:.2rem; color:#8b5e1d; }
+.events-awards-page .award-lightbox { position:fixed; inset:0; width:min(1100px,96vw); max-width:96vw; max-height:94svh; margin:auto; padding:3.5rem 3.5rem 1.5rem; border:1px solid #d8e0e6; border-radius:1.25rem; background:#fff; color:#10263f; }
+.events-awards-page .award-lightbox::backdrop { background:#10263fcc; }
+.events-awards-page .award-lightbox figure { margin:auto; text-align:center; }
+.events-awards-page .award-lightbox img { display:block; margin:auto; max-height:72svh; max-width:100%; object-fit:contain; }
+.events-awards-page .award-lightbox figcaption { margin-top:1rem; font-size:.88rem; }
+.events-awards-page :is(.award-lightbox-close,.award-lightbox-arrow) { position:absolute; display:grid; place-items:center; width:40px; height:40px; border-radius:50%; border:1px solid #c4d1da; background:#f0f5f7; color:#10263f; }
+.events-awards-page .award-lightbox-close { top:.65rem; right:.65rem; }
+.events-awards-page .award-lightbox-arrow { top:50%; transform:translateY(-50%); }
+.events-awards-page .recognition-video { background-image:linear-gradient(100deg,#edf5faeb,#f7fafbc9),url('/images/prism-official/school-workshop.jpg'); }
+.events-awards-page .video-placeholder { display:grid; place-items:center; gap:.65rem; max-width:750px; margin:1.5rem auto 0; padding:1.5rem; border:1px dashed #8fa8ba; border-radius:1.15rem; background:#ffffffe6; text-align:center; }
+.events-awards-page .video-placeholder svg { color:#956215; }
+.events-awards-page .video-placeholder p { font-weight:700; }
+.events-awards-page .video-placeholder small { color:#415567; }
+.events-awards-page .why-event-platform { background-image:linear-gradient(100deg,#fffaf0ed,#f6f4e7d4),url('/images/prism-official/school-community.jpg'); }
+.events-awards-page .why-event-platform img { width:160px; height:160px; object-fit:contain; border:1px solid #e4d9b8; border-radius:1.25rem; box-shadow:0 10px 25px #193d3015; }
+.events-awards-page .events-final-cta { background-image:linear-gradient(100deg,#edf6f6ed,#f2f7eed6),url('/images/prism-official/school-land-location-background.png'); }
+.events-awards-page .events-final-cta h2 { color:#10263f; font-size:clamp(2rem,4vw,3.5rem); font-weight:800; line-height:1.15; }
+.events-awards-page .events-final-cta p { max-width:760px; margin:1.2rem auto 0; line-height:1.8; color:#344b60; }
+.events-awards-page .events-final-cta .wrap > div { display:flex; justify-content:center; flex-wrap:wrap; gap:.75rem; margin-top:1.75rem; }
+@keyframes events-poster-rise { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+@keyframes events-poster-glow { 0%,100% { box-shadow:0 22px 55px #173e5b24; } 50% { box-shadow:0 22px 60px #bd8b323b; } }
+@media(hover:hover) and (prefers-reduced-motion:no-preference) {
+ .events-awards-page :is(.events-hero-visual,.award-gallery-item,.event-network-card,.event-highlight-card):hover { transform:translateY(-4px); box-shadow:0 18px 40px #173e5b29; }
+}
+@media(max-width:1023px) {
+ .events-awards-page .events-hero-grid { grid-template-columns:1fr; }
+ .events-awards-page .events-hero-visual { max-width:660px; margin-inline:auto; }
+ .events-awards-page .award-gallery-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:639px) {
+ .events-awards-page .award-gallery-grid { grid-template-columns:1fr; }
+ .events-awards-page .event-info-panel div { grid-template-columns:1fr; gap:.4rem; }
+ .events-awards-page .events-hero-visual { border-radius:1rem; }
+ .events-awards-page .why-event-platform .wrap { text-align:center; }
+ .events-awards-page .why-event-platform img { margin-inline:auto; }
+ .events-awards-page .events-final-cta .wrap > div { flex-direction:column; }
+ .events-awards-page .award-lightbox { padding:3.5rem .75rem 4.5rem; }
+ .events-awards-page .award-lightbox-arrow { top:auto; bottom:.8rem; transform:none; }
+}
+@media(prefers-reduced-motion:reduce) {
+ .events-awards-page *, .events-awards-page *::before, .events-awards-page *::after { animation:none!important; transition:none!important; scroll-behavior:auto!important; }
+}

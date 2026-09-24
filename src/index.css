@@ -1,1 +1,428 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap');@tailwind base;@tailwind components;@tailwind utilities;@layer base{html{scroll-behavior:smooth}body{@apply m-0 font-sans text-slate-700 antialiased}h1,h2,h3{@apply font-display text-ink}input,select,textarea{@apply outline-none}}@layer components{.wrap{@apply mx-auto max-w-[1240px] px-5 md:px-8}.eyebrow{@apply mb-4 block text-xs font-bold uppercase tracking-[.2em] text-gold}.title{@apply text-3xl font-bold leading-tight md:text-5xl}.btn{@apply inline-flex items-center justify-center gap-2 rounded-lg bg-gold px-5 py-3 text-sm font-bold text-ink transition hover:-translate-y-0.5 hover:bg-amber-400}.btn2{@apply inline-flex items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-5 py-3 text-sm font-bold text-ink transition hover:border-gold}.card{@apply rounded-2xl border border-slate-100 bg-white p-6 shadow-[0_16px_45px_rgba(16,38,63,.08)] transition hover:-translate-y-1}.field{@apply w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm focus:border-gold focus:ring-2 focus:ring-gold/20}}@keyframes announcementScroll{to{transform:translateX(-50%)}}.announcement-bar{overflow:hidden}.announcement-track{display:flex;width:max-content;animation:announcementScroll 38s linear infinite}.announcement-group{display:flex;align-items:center;gap:1.5rem;padding-right:1.5rem}.announcement-bar:hover .announcement-track{animation-play-state:paused}@keyframes heroFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}@keyframes heroPop{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}@keyframes heroImageFade{from{opacity:0;transform:scale(1.015)}to{opacity:.3;transform:scale(1)}}.hero-float{animation:heroFloat 4s ease-in-out infinite}.hero-pop{animation:heroPop .55s ease-out both}.hero-feature{animation:heroPop .45s ease-out both}.hero-image-fade{animation:heroImageFade .8s ease-out both}@media(prefers-reduced-motion:reduce){.announcement-track,.hero-float,.hero-pop,.hero-feature,.hero-image-fade{animation:none!important}.announcement-track{transform:none}*{scroll-behavior:auto!important}}
+
+@layer components{
+  .section-kicker{@apply text-xs font-extrabold uppercase tracking-[.2em] text-[#d99a16]}
+  .section-heading{@apply mt-3 text-[clamp(1.9rem,4vw,3.25rem)] font-extrabold leading-[1.12] tracking-[-.025em] text-[#10263f]}
+  .ecosystem-card{@apply relative flex min-h-[250px] flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 text-[#10263f] shadow-[0_12px_38px_rgba(16,38,63,.07)] transition duration-300 hover:-translate-y-1 hover:border-[#eeb640]/70 hover:shadow-xl}
+  .ecosystem-card h3{@apply mt-5 text-lg font-extrabold}
+  .ecosystem-card p{@apply mb-5 mt-2 text-sm leading-6 text-slate-600}
+  .ecosystem-icon{@apply grid h-12 w-12 place-items-center rounded-xl bg-[#10263f] text-[#eeb640]}
+  .ecosystem-number{@apply absolute right-4 top-3 text-5xl font-black text-slate-100}
+  .service-showcase-card{@apply flex min-h-[440px] flex-col rounded-[1.75rem] border border-white p-6 shadow-[0_18px_50px_rgba(16,38,63,.09)] transition duration-300 hover:-translate-y-1 hover:shadow-xl md:p-8}
+  .service-showcase-card h3{@apply mt-6 text-2xl font-extrabold text-[#10263f]}
+  .service-showcase-card>p{@apply mt-3 text-sm leading-6 text-slate-600}
+  .service-showcase-card ul{@apply my-6 grid gap-2 text-sm font-semibold text-[#10263f] sm:grid-cols-2}
+  .service-showcase-card li{@apply flex items-start gap-2 before:mt-2 before:h-1.5 before:w-1.5 before:shrink-0 before:rounded-full before:bg-[#eeb640]}
+  .service-showcase-card>a{@apply mt-auto inline-flex items-center gap-2 text-sm font-extrabold text-[#10263f]}
+  .gallery-arrow{@apply grid h-11 w-11 place-items-center rounded-full border border-slate-200 bg-white text-[#10263f] shadow-sm transition hover:border-[#eeb640] hover:text-[#d99a16]}
+  .gallery-card{@apply overflow-hidden rounded-[1.5rem] bg-[#10263f] shadow-lg}
+  .gallery-card img{@apply h-80 w-full object-cover object-top transition duration-500 hover:scale-[1.025]}
+  .gallery-card figcaption{@apply px-5 py-4 text-sm font-bold text-white}
+  .cta-outline{@apply inline-flex min-h-12 items-center justify-center rounded-lg border border-white/25 px-5 py-3 text-sm font-bold text-white transition hover:bg-white/10}
+}
+
+header>.wrap{height:clamp(4.75rem,5.6vw,5.25rem)!important}
+header>.wrap>a img{height:clamp(4.25rem,5.2vw,5rem);width:auto;max-width:clamp(12rem,15.5vw,14.5rem);object-fit:contain}
+header>.wrap>nav{gap:clamp(.4rem,.68vw,.8rem)}
+header .nav-link{font-size:clamp(1rem,1.04vw,1.0625rem)!important;font-weight:700!important;padding-inline:clamp(.18rem,.25vw,.3rem)!important}
+.nav-link:after{height:3px!important}
+.bus-road{position:relative;height:4px!important;overflow:visible;background:linear-gradient(to bottom,transparent 0 1px,#e2b33d 1px 3px,transparent 3px);pointer-events:none}
+.school-bus{width:auto!important;height:clamp(32px,2.7vw,40px)!important;color:#10263f!important;fill:#f4bd32;stroke-width:1.6;bottom:1px!important;max-width:none}
+#mobile-navigation{max-height:calc(100vh - 100px);overflow-y:auto}
+html,body,#root{max-width:100%;overflow-x:hidden}
+@media(max-width:1279px){header>.wrap{height:4.75rem!important}header>.wrap>a img{height:clamp(3.5rem,10vw,4rem);max-width:11.5rem}.bus-road{height:4px!important}.school-bus{height:clamp(24px,6vw,30px)!important;width:auto!important}}
+@media(max-width:390px){.wrap{padding-left:1rem;padding-right:1rem}.service-showcase-card{min-height:0}.section-heading{font-size:1.85rem}.school-bus{bottom:0!important}}
+@media(prefers-reduced-motion:reduce){.school-bus{animation:none!important;left:1rem!important}.ecosystem-card,.service-showcase-card,.gallery-card img{transition:none!important}}
+
+@layer components{
+  .about-feature-card{@apply relative overflow-hidden rounded-[2rem] border border-white bg-gradient-to-br from-white to-blue-50 p-7 shadow-[0_18px_55px_rgba(16,38,63,.09)] md:p-10}
+  .about-feature-card>svg{@apply text-[#d99a16]}
+  .about-feature-card h2{@apply mt-6 text-3xl font-extrabold text-[#10263f]}
+  .about-feature-card h3{@apply mt-3 text-lg font-bold leading-7 text-[#31506c]}
+  .about-feature-card p{@apply mt-4 leading-8 text-slate-600}
+  .team-profile-card{@apply flex overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-[0_16px_45px_rgba(16,38,63,.08)] transition duration-300 hover:-translate-y-1 hover:border-[#eeb640]/60 hover:shadow-xl lg:flex-col}
+  .team-profile-card img{@apply h-64 w-40 shrink-0 object-cover object-top sm:w-52 lg:h-80 lg:w-full}
+  .team-profile-card h3{@apply text-xl font-extrabold text-[#10263f]}
+  .value-card{@apply rounded-2xl border border-slate-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-[#eeb640]/60 hover:shadow-lg}
+  .value-card>svg{@apply text-[#d99a16]}
+  .value-card h3{@apply mt-5 text-xl font-extrabold text-[#10263f]}
+  .value-card p{@apply mt-3 text-sm leading-6 text-slate-600}
+  .award-card{@apply overflow-hidden rounded-[1.75rem] bg-white shadow-[0_18px_50px_rgba(16,38,63,.12)]}
+  .award-card img{@apply h-80 w-full object-cover object-top md:h-[430px]}
+  .award-card figcaption{@apply p-5 text-base font-extrabold text-[#10263f]}
+}
+@media(max-width:639px){.team-profile-card{flex-direction:column}.team-profile-card img{height:19rem;width:100%}}
+@media(prefers-reduced-motion:reduce){.team-profile-card,.value-card,.award-card img{transition:none!important}}
+.about-hero>img[alt="Prism Edu"]{margin-left:max(1.25rem,calc((100vw - 1240px)/2 + 2rem))}
+@media(max-width:767px){.about-hero>img[alt="Prism Edu"]{margin-left:1.25rem}}
+@layer components{
+  .services-hero-arrow{@apply absolute top-1/2 z-20 hidden h-11 w-11 -translate-y-1/2 place-items-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur transition hover:bg-white/20 md:grid}
+  .service-area-button{@apply flex min-h-[230px] flex-col items-start rounded-2xl border border-slate-200 p-6 text-left shadow-[0_12px_36px_rgba(16,38,63,.07)] transition duration-300 hover:-translate-y-1 hover:border-[#eeb640]/70 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d99a16]}
+  .service-area-button strong{@apply mt-5 text-lg font-extrabold}
+  .service-area-button span{@apply mt-2 text-sm leading-6 opacity-70}
+  .service-area-button.is-selected{@apply -translate-y-1 border-[#eeb640] ring-2 ring-[#eeb640]/30}
+  .subservice-card{@apply flex min-h-[92px] items-center gap-4 rounded-2xl border border-slate-200 bg-[#f8fafc] p-5 text-[#10263f] transition duration-300 hover:-translate-y-0.5 hover:border-[#eeb640]/70 hover:bg-white hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d99a16]}
+  .subservice-card>svg:first-child{@apply shrink-0 text-[#d99a16]}
+  .subservice-card strong{@apply block text-sm font-extrabold}
+  .subservice-card small{@apply mt-1 block text-xs leading-5 text-slate-500}
+  .service-disclaimer{@apply mt-8 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-900}
+}
+@media(max-width:374px){.service-area-button{min-height:0;padding:1.15rem}.subservice-card{padding:1rem}}
+@media(prefers-reduced-motion:reduce){.services-hero-arrow,.service-area-button,.subservice-card{transition:none!important}}
+@layer components{
+  .service-sticky-nav{@apply sticky top-[74px] z-40 border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur}
+  .service-sticky-link{@apply inline-flex min-h-11 shrink-0 items-center gap-2 whitespace-nowrap rounded-xl px-4 py-2 text-sm font-bold text-[#10263f] transition hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#d99a16]}
+  .service-sticky-link.is-active{@apply bg-[#10263f] text-white shadow-md}
+  .service-detail-card{@apply flex min-h-[126px] items-start gap-4 rounded-2xl border border-white bg-white/85 p-5 text-[#10263f] shadow-[0_10px_35px_rgba(16,38,63,.07)] transition duration-300 hover:border-[#eeb640]/70 hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d99a16]}
+  .service-detail-card>svg{@apply mt-1 shrink-0 text-[#d99a16]}
+  .service-detail-card h3{@apply text-base font-extrabold leading-6}
+  .service-detail-card p{@apply mt-2 text-sm leading-6 text-slate-600}
+  .service-detail-card span{@apply mt-3 inline-flex items-center gap-1 text-xs font-extrabold text-[#10263f]}
+  .marketplace-route-card{@apply rounded-[2rem] border border-slate-200 bg-[#f8fafc] p-7 shadow-sm md:p-9}
+  .marketplace-route-card>svg{@apply text-[#d99a16]}
+  .marketplace-route-card h2{@apply mt-6 text-3xl font-extrabold text-[#10263f]}
+  .marketplace-route-card p{@apply mb-7 mt-3 leading-7 text-slate-600}
+  .services-mega-menu{@apply pointer-events-none fixed left-1/2 top-[108px] z-[70] w-[min(96vw,1380px)] -translate-x-1/2 -translate-y-2 rounded-2xl bg-gradient-to-br from-[#10263f] to-[#126b73] p-7 text-white opacity-0 shadow-2xl transition duration-200}
+  .services-mega-menu.is-open{@apply pointer-events-auto translate-y-0 opacity-100}
+  .mega-heading{@apply flex items-center gap-2 border-b border-white/15 pb-3 text-sm font-extrabold text-[#f3c35d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-white}
+  .mega-link{@apply block rounded-md px-2 py-1 text-xs leading-5 text-white/75 transition hover:bg-white/10 hover:text-white focus-visible:bg-white/10 focus-visible:text-white focus-visible:outline-none}
+}
+@media(max-width:1279px){.services-mega-menu{display:none}.service-sticky-nav{top:74px}}
+@media(max-width:639px){.service-sticky-link{font-size:.78rem;padding-inline:.8rem}.service-detail-card{min-height:0}}
+@media(prefers-reduced-motion:reduce){.services-mega-menu,.service-sticky-link,.service-detail-card{transition:none!important}}
+@layer components{
+  .service-sticky-inner{@apply mx-auto flex max-w-[1320px] gap-2 overflow-x-auto px-4 py-3 md:px-8}
+  .service-compact-card{@apply flex min-h-[132px] items-start gap-3 rounded-2xl border border-white bg-white/85 p-4 text-[#10263f] shadow-[0_8px_28px_rgba(16,38,63,.06)] transition duration-300 hover:border-[#eeb640]/70 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d99a16]}
+  .service-compact-card>svg{@apply mt-1 shrink-0 text-[#d99a16]}
+  .service-compact-card h3{@apply text-sm font-extrabold leading-5}
+  .service-compact-card p{@apply mt-2 text-xs leading-5 text-slate-600}
+  .service-compact-card span{@apply mt-3 inline-flex items-center gap-1 text-[11px] font-extrabold}
+  .service-visual-figure{@apply relative overflow-hidden rounded-[2rem] bg-[#10263f] shadow-[0_24px_70px_rgba(16,38,63,.18)] lg:sticky lg:top-[154px]}
+  .service-visual-figure img{@apply aspect-[4/5] w-full object-cover object-center}
+  .service-visual-figure figcaption{@apply absolute bottom-5 left-5 flex items-center gap-2 rounded-xl bg-[#10263f]/90 px-4 py-3 text-sm font-bold text-white backdrop-blur}
+}
+.service-sticky-inner{-ms-overflow-style:none;scrollbar-width:none}.service-sticky-inner::-webkit-scrollbar{display:none}
+@media(min-width:1024px){.service-sticky-inner{justify-content:space-between}.service-sticky-link{flex:1;justify-content:center}}
+@media(max-width:639px){.service-visual-figure{order:-1}.service-visual-figure img{aspect-ratio:16/10}.service-compact-card{min-height:0}}
+@media(prefers-reduced-motion:reduce){.service-compact-card{transition:none!important}}
+@layer components{
+  .service-image-card{@apply overflow-hidden rounded-2xl border border-white bg-white/90 text-[#10263f] shadow-[0_8px_28px_rgba(16,38,63,.07)] transition duration-300 hover:-translate-y-0.5 hover:border-[#eeb640]/70 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d99a16]}
+  .service-image-card>img{@apply aspect-[16/7] w-full object-cover object-center}
+  .service-image-card>div>svg{@apply mt-1 shrink-0 text-[#d99a16]}
+  .service-image-card h3{@apply text-sm font-extrabold leading-5}
+  .service-image-card p{@apply mt-2 text-xs leading-5 text-slate-600}
+  .service-image-card span{@apply mt-3 inline-flex items-center gap-1 text-[11px] font-extrabold}
+  .service-side-image{@apply relative overflow-hidden rounded-[2rem] bg-[#10263f] shadow-[0_20px_60px_rgba(16,38,63,.17)] lg:sticky lg:top-[154px]}
+  .service-side-image>img{@apply aspect-[4/5] w-full object-cover object-center}
+  .service-side-image figcaption{@apply absolute bottom-5 left-5 flex items-center gap-2 rounded-xl bg-[#10263f]/90 px-4 py-3 text-sm font-bold text-white backdrop-blur}
+}
+@media(max-width:1023px){.service-side-image{order:-1}.service-side-image>img{aspect-ratio:16/8;max-height:430px}}
+@media(max-width:639px){.service-image-card>img{aspect-ratio:16/6}.service-side-image>img{aspect-ratio:16/10}}
+@media(prefers-reduced-motion:reduce){.service-image-card{transition:none!important}}
+
+/* Dedicated School Land page */
+.school-land-page-hero>img{object-position:center 55%;animation:schoolLandHero 12s ease-out both}
+@keyframes schoolLandHero{from{transform:scale(1.035)}to{transform:scale(1)}}
+.school-location-matters{position:relative;background:linear-gradient(135deg,rgba(244,250,245,.97),rgba(255,252,244,.96),rgba(239,248,252,.97));overflow:hidden}
+.school-location-matters:before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 8% 20%,rgba(34,139,94,.09),transparent 28%),radial-gradient(circle at 92% 80%,rgba(45,129,169,.09),transparent 30%)}
+.school-land-info-card{position:relative;min-height:230px;border:1px solid rgba(19,99,71,.14);border-radius:1.25rem;background:rgba(255,255,255,.86);padding:1.5rem;box-shadow:0 12px 34px rgba(16,38,63,.07);backdrop-filter:blur(8px);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.school-land-info-card:hover{transform:translateY(-4px);border-color:rgba(217,154,22,.6);box-shadow:0 20px 44px rgba(16,38,63,.11)}
+.school-land-info-card>span{display:grid;width:3rem;height:3rem;place-items:center;border-radius:.9rem;background:#e6f5ed;color:#126b4d}.school-land-info-card h3{margin-top:1.15rem;font-size:1.05rem;font-weight:800}.school-land-info-card p{margin-top:.65rem;font-size:.875rem;line-height:1.65;color:#526478}
+.school-property-option{display:flex;min-height:180px;gap:1rem;border:1px solid rgba(16,38,63,.1);border-radius:1.25rem;background:rgba(255,255,255,.88);padding:1.35rem;box-shadow:0 10px 30px rgba(16,38,63,.06);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.school-property-option:hover{transform:translateY(-3px);border-color:rgba(217,154,22,.55);box-shadow:0 16px 36px rgba(16,38,63,.1)}
+.school-property-option>svg{flex:none;margin-top:.2rem;color:#16805e}.school-property-option h3{font-size:1rem;font-weight:800;line-height:1.4}.school-property-option p{margin-top:.55rem;font-size:.82rem;line-height:1.6;color:#5c6c7e}
+.land-process-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}.land-process-grid li{position:relative;min-height:200px;border-radius:1.35rem;background:#10263f;padding:1.5rem;color:#fff;box-shadow:0 14px 36px rgba(16,38,63,.15)}.land-process-grid li:not(:last-child):after{content:"";position:absolute;right:-1rem;top:2.9rem;width:1rem;border-top:2px dashed #d99a16}.land-process-grid li>span{display:grid;width:2.8rem;height:2.8rem;place-items:center;border-radius:.8rem;background:#eeb640;color:#10263f;font-size:.8rem;font-weight:900}.land-process-grid h3{margin-top:1.15rem;color:#fff;font-size:1rem;font-weight:800}.land-process-grid p{margin-top:.65rem;color:rgba(255,255,255,.7);font-size:.82rem;line-height:1.6}
+@media(max-width:1023px){.land-process-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.land-process-grid li:nth-child(2):after{display:none}}
+@media(max-width:639px){.school-land-page-hero>img{object-position:64% center}.school-land-page-hero .wrap{align-items:flex-end;min-height:600px}.school-land-info-card,.school-property-option{min-height:0}.land-process-grid{grid-template-columns:1fr}.land-process-grid li{min-height:0}.land-process-grid li:after{display:none}}
+@media(prefers-reduced-motion:reduce){.school-land-page-hero>img{animation:none}.school-land-info-card,.school-property-option{transition:none}}
+
+/* Concise School Land planning and connection sections */
+.school-location-matters .school-land-info-card{min-height:160px;padding:1.2rem;background:rgba(255,255,255,.9)}
+.school-location-matters .school-land-info-card:nth-child(2) span{background:#e9effd;color:#3159a0}.school-location-matters .school-land-info-card:nth-child(3) span{background:#fff1d7;color:#a66d00}.school-location-matters .school-land-info-card:nth-child(4) span{background:#f0eafb;color:#6946a0}.school-location-matters .school-land-info-card:nth-child(5) span{background:#e4f6f5;color:#08756f}.school-location-matters .school-land-info-card:nth-child(6) span{background:#ffebe5;color:#a8452b}
+.land-connection-section{position:relative;overflow:hidden;background:linear-gradient(135deg,#edf8f3,#f4f8fc 48%,#fff7e8)}
+.land-connection-card{position:relative;min-height:330px;border:1px solid rgba(16,38,63,.12);border-radius:1.5rem;background:rgba(255,255,255,.9);padding:1.5rem;box-shadow:0 14px 38px rgba(16,38,63,.08);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}.land-connection-card:hover{transform:translateY(-4px);border-color:rgba(238,182,64,.65);box-shadow:0 22px 50px rgba(16,38,63,.13)}.land-connection-card:after{content:"";position:absolute;left:1.5rem;right:1.5rem;top:0;height:4px;border-radius:0 0 999px 999px;background:#247b9f}.land-connection-card-2:after{background:#d99a16}.land-connection-card-3:after{background:#16805e}
+.land-connection-icon{display:grid;width:3.2rem;height:3.2rem;place-items:center;border-radius:1rem;background:#e7f3fa;color:#176f94}.land-connection-card-2 .land-connection-icon{background:#fff1d5;color:#a66d00}.land-connection-card-3 .land-connection-icon{background:#e4f4ec;color:#126b4d}.land-connection-card h3{margin-top:1.15rem;font-size:1.1rem;font-weight:800}.land-connection-card ul{display:grid;gap:.75rem;margin-top:1rem}.land-connection-card li{display:flex;align-items:flex-start;gap:.6rem;color:#526478;font-size:.84rem;line-height:1.5}.land-connection-card li>svg{flex:none;margin-top:.18rem;color:#16805e}
+.land-reveal{animation:landFadeUp .55s ease-out both;animation-delay:var(--reveal-delay,0ms)}@keyframes landFadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@supports(animation-timeline:view()){.land-reveal{animation-timeline:view();animation-range:entry 5% cover 24%;animation-delay:0ms}}
+@media(max-width:639px){.school-location-matters .school-land-info-card,.land-connection-card{min-height:0}.land-connection-card{padding:1.25rem}}
+@media(prefers-reduced-motion:reduce){.land-reveal{animation:none}.land-connection-card{transition:none}}
+
+/* Dedicated School e-Marketplace page */
+.material-page-hero img{aspect-ratio:1600/245;background:#052e4b}
+.material-procurement-section{position:relative;overflow:hidden;background:linear-gradient(135deg,#f5f9fd,#fffaf0 48%,#eef8f7)}
+.procurement-card{position:relative;min-height:430px;border:1px solid rgba(16,38,63,.11);border-radius:1.6rem;background:rgba(255,255,255,.92);padding:1.6rem;box-shadow:0 14px 42px rgba(16,38,63,.08);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.procurement-card:hover{transform:translateY(-4px);border-color:rgba(238,182,64,.65);box-shadow:0 22px 52px rgba(16,38,63,.13)}
+.procurement-card:after{content:"";position:absolute;left:1.6rem;right:1.6rem;top:0;height:4px;border-radius:0 0 999px 999px;background:#1d7ea5}.procurement-card-2:after{background:#d99a16}.procurement-card-3:after{background:#16805e}
+.procurement-icon{display:grid;width:3.15rem;height:3.15rem;place-items:center;border-radius:1rem;background:#e8f4fa;color:#126689}.procurement-card-2 .procurement-icon{background:#fff3d9;color:#a66d00}.procurement-card-3 .procurement-icon{background:#e5f5ee;color:#126b4d}
+.procurement-card h2{margin-top:1.2rem;font-size:1.2rem;font-weight:800}.procurement-card ul{display:grid;gap:.75rem;margin-top:1.15rem}.procurement-card li{display:flex;align-items:flex-start;gap:.65rem;color:#526478;font-size:.84rem;line-height:1.55}.procurement-card li>svg{flex:none;margin-top:.2rem;color:#16805e}
+@media(max-width:639px){.material-page-hero{padding-block:.75rem 1rem}.material-page-hero>div{padding-inline:.5rem}.material-page-hero img{border-radius:.85rem}.procurement-card{min-height:0;padding:1.3rem}}
+@media(prefers-reduced-motion:reduce){.procurement-card{transition:none}}
+
+/* Our Services page: stable mega menu and image-led service sections. */
+.services-mega-menu{top:var(--services-menu-top,108px);max-height:calc(100vh - var(--services-menu-top,108px) - 8px);overflow-y:auto;transition:opacity .12s ease,transform .12s ease}
+.services-mega-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(1rem,2vw,1.5rem)}
+.school-services-heading{flex-direction:column;align-items:center!important;justify-content:center;text-align:center}
+#school-services>.mx-auto>div:first-child>div:first-child>p{margin-inline:auto;text-align:center}
+#school-services{background-image:linear-gradient(110deg,rgba(8,28,48,.78),rgba(15,54,83,.64),rgba(12,67,75,.48)),url('/images/prism-official/school-workshop.jpg')}
+#school-land-support{background-image:linear-gradient(110deg,rgba(8,45,30,.74),rgba(13,76,49,.6),rgba(54,88,43,.4)),url('/images/prism-official/school-land-location-background.png')}
+#vendor-services{background-image:linear-gradient(110deg,rgba(77,49,5,.7),rgba(126,76,6,.55),rgba(26,66,86,.38)),url('/images/hero-slides/hero-upload-2.jpg');background-size:cover;background-position:center}
+#licensing-legal{background-image:linear-gradient(110deg,rgba(39,25,67,.74),rgba(70,43,100,.56),rgba(19,68,92,.4)),url('/images/hero-slides/hero-upload-3.jpg');background-size:cover;background-position:center}
+#digital-services{background-image:linear-gradient(110deg,rgba(6,52,67,.72),rgba(13,93,106,.55),rgba(51,43,103,.4)),url('/images/prism-hero.png');background-size:cover;background-position:center}
+#school-services,#school-land-support,#vendor-services,#licensing-legal,#digital-services{position:relative;isolation:isolate;background-attachment:fixed}
+#school-land-support:after,#digital-services:after{content:"";position:absolute;z-index:-1;width:110px;height:110px;right:clamp(1rem,4vw,4rem);bottom:2rem;background:url('/images/prism-official/prism-logo.jpg') center/contain no-repeat;opacity:.07;border-radius:1rem}
+.service-image-card{animation:serviceCardIn .5s ease-out both}.service-image-card:hover>div>svg{transform:translateY(-2px) rotate(-3deg)}.service-image-card>div>svg{transition:transform .25s ease}
+@keyframes serviceCardIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:1279px){.services-mega-menu{display:block;width:min(94vw,760px);padding:1.1rem}.services-mega-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.services-mega-menu:not(.is-open){visibility:hidden}.services-mega-menu.is-open{visibility:visible}}
+@media(max-width:639px){.services-mega-grid{grid-template-columns:1fr}.services-mega-menu{width:calc(100vw - 1rem);max-height:calc(100vh - var(--services-menu-top,108px) - .5rem);padding:1rem}#school-services,#school-land-support,#vendor-services,#licensing-legal,#digital-services{background-attachment:scroll;background-position:center}}
+@media(prefers-reduced-motion:reduce){.services-mega-menu,.service-image-card,.service-image-card>div>svg{transition:none!important;animation:none!important}#school-services,#school-land-support,#vendor-services,#licensing-legal,#digital-services{background-attachment:scroll}}
+
+/* School Services uses the supplied Prism classroom photograph as one compact, unified section. */
+#school-services{
+  position:relative;
+  isolation:isolate;
+  background-color:#10263f;
+  background-image:linear-gradient(110deg,rgba(8,28,48,.94),rgba(15,54,83,.86),rgba(12,67,75,.78)),url('/images/prism-official/school-workshop.jpg');
+  background-size:cover;
+  background-position:center 34%;
+  background-attachment:scroll;
+}
+#school-services>.mx-auto>div:first-child{display:block}
+#school-services .service-side-image{display:none}
+#school-services h2,#school-services>div>div>div>div h3{color:#fff}
+#school-services>div>div>div>p{color:rgba(255,255,255,.78)}
+#school-services>div>div>div>div:first-child>p{color:rgba(255,255,255,.48)}
+#school-services>div>div>div>div:first-child>span{background:#eeb640;color:#10263f}
+#school-services>div>div>div>.mt-8.grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:.75rem}
+#school-services .service-image-card{display:flex;min-height:84px;align-items:center;background:rgba(255,255,255,.11);border-color:rgba(255,255,255,.2);box-shadow:0 10px 28px rgba(0,0,0,.12);backdrop-filter:blur(10px);color:#fff}
+#school-services .service-image-card>img{display:none}
+#school-services .service-image-card>div{align-items:center;padding:.9rem}
+#school-services .service-image-card>div>svg{color:#f3c35d}
+#school-services .service-image-card h3{color:#fff;font-size:.82rem;line-height:1.25rem}
+#school-services .service-image-card p,#school-services .service-image-card span{display:none}
+#school-services .service-image-card:hover{background:rgba(255,255,255,.17);border-color:rgba(238,182,64,.8)}
+#school-services>div>div>div>.mt-8.flex{justify-content:center;margin-top:2rem}
+#school-services>div>div>div>.mt-8.flex .btn2{border-color:rgba(255,255,255,.55);background:rgba(255,255,255,.1);color:#fff}
+@media(max-width:1199px){#school-services>div>div>div>.mt-8.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:899px){#school-services>div>div>div>.mt-8.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:639px){#school-services{background-position:42% center}#school-services>div>div>div>.mt-8.grid{grid-template-columns:repeat(2,minmax(0,1fr))}#school-services .service-image-card{min-height:92px}}
+@media(max-width:339px){#school-services>div>div>div>.mt-8.grid{grid-template-columns:1fr}}
+
+/* School Land & Support: one unified image-led panel with compact service choices. */
+#school-land-support{
+  position:relative;
+  isolation:isolate;
+  background-color:#123c2b;
+  background-image:linear-gradient(110deg,rgba(8,45,30,.91),rgba(13,76,49,.84),rgba(54,88,43,.76)),url('/images/prism-official/school-land-location-background.png');
+  background-size:cover;
+  background-position:center center;
+  background-attachment:scroll;
+}
+#school-land-support>.mx-auto>div:first-child{display:block}
+#school-land-support .service-side-image{display:none}
+#school-land-support>.mx-auto>div:first-child>div:first-child{text-align:center}
+#school-land-support>.mx-auto>div:first-child>div:first-child>div:first-child{justify-content:center;align-items:center}
+#school-land-support>.mx-auto>div:first-child>div:first-child>p{margin-left:auto;margin-right:auto}
+#school-land-support h2,#school-land-support .service-image-card h3{color:#fff}
+#school-land-support>div>div>div>p{color:rgba(235,255,241,.86)}
+#school-land-support>div>div>div>div:first-child>p{color:rgba(255,255,255,.5)}
+#school-land-support>div>div>div>div:first-child>span{background:#eeb640;color:#173a27}
+#school-land-support>div>div>div>.mt-8.grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:.75rem}
+#school-land-support .service-image-card{display:flex;min-height:88px;align-items:center;text-align:left;background:rgba(24,104,65,.46);border-color:rgba(219,255,228,.35);box-shadow:0 10px 28px rgba(0,0,0,.14);backdrop-filter:blur(10px);color:#fff}
+#school-land-support .service-image-card>img{display:none}
+#school-land-support .service-image-card>div{align-items:center;padding:.95rem}
+#school-land-support .service-image-card>div>svg{color:#dff5d5}
+#school-land-support .service-image-card h3{font-size:.84rem;line-height:1.25rem}
+#school-land-support .service-image-card p,#school-land-support .service-image-card span{display:none}
+#school-land-support .service-image-card:hover{background:rgba(41,132,82,.62);border-color:rgba(238,182,64,.9)}
+#school-land-support .service-image-card:focus-visible{outline-color:#f3c35d}
+#school-land-support>div>div>div>.mt-8.flex{justify-content:center;margin-top:2rem}
+#school-land-support>div>div>div>.mt-8.flex .btn2{border-color:rgba(226,255,233,.68);background:rgba(11,75,45,.48);color:#fff}
+#school-land-support>div>div>div>.mt-8.flex .btn2:hover{border-color:#f3c35d;background:rgba(238,182,64,.16)}
+@media(max-width:1199px){#school-land-support>div>div>div>.mt-8.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:767px){#school-land-support{background-position:60% center}#school-land-support>div>div>div>.mt-8.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:339px){#school-land-support>div>div>div>.mt-8.grid{grid-template-columns:1fr}}
+
+/* Vendor & Materials: a compact, unified marketplace overview. */
+#vendor-services{position:relative;isolation:isolate;background-color:#10263f;background-image:linear-gradient(110deg,rgba(8,29,55,.92),rgba(12,55,91,.86),rgba(11,91,101,.78)),url('/images/prism-official/school-material-marketplace-background.png');background-size:cover;background-position:center;background-attachment:scroll}
+#vendor-services>.mx-auto>div:first-child{display:block}
+#vendor-services .service-side-image{display:none}
+#vendor-services>.mx-auto>div:first-child>div:first-child{text-align:center}
+#vendor-services>.mx-auto>div:first-child>div:first-child>div:first-child{justify-content:center;align-items:center}
+#vendor-services>.mx-auto>div:first-child>div:first-child>p{margin-left:auto;margin-right:auto}
+#vendor-services h2,#vendor-services .service-image-card h3{color:#fff}
+#vendor-services>div>div>div>p{color:rgba(231,248,255,.84)}
+#vendor-services>div>div>div>div:first-child>p{color:rgba(255,255,255,.5)}
+#vendor-services>div>div>div>div:first-child>span{background:#eeb640;color:#10263f}
+#vendor-services>div>div>div>.mt-8.grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:.7rem}
+#vendor-services .service-image-card{display:flex;min-height:86px;align-items:center;text-align:left;background:rgba(19,89,124,.48);border-color:rgba(213,244,255,.3);box-shadow:0 10px 28px rgba(0,0,0,.15);backdrop-filter:blur(10px);color:#fff}
+#vendor-services .service-image-card>img{display:none}
+#vendor-services .service-image-card>div{align-items:center;padding:.9rem}
+#vendor-services .service-image-card>div>svg{color:#f3c35d;transition:transform .25s ease}
+#vendor-services .service-image-card h3{font-size:.8rem;line-height:1.2rem}
+#vendor-services .service-image-card p,#vendor-services .service-image-card span{display:none}
+#vendor-services .service-image-card:hover{background:rgba(23,117,145,.62);border-color:rgba(238,182,64,.88);transform:translateY(-2px)}
+#vendor-services .service-image-card:hover>div>svg{transform:scale(1.08)}
+#vendor-services .service-image-card:focus-visible{outline-color:#f3c35d}
+#vendor-services>div>div>div>.mt-8.flex{justify-content:center;margin-top:2rem}
+#vendor-services>div>div>div>.mt-8.flex .btn2{border-color:rgba(221,246,255,.62);background:rgba(10,58,90,.5);color:#fff}
+#vendor-services>div>div>div>.mt-8.flex .btn2:hover{border-color:#f3c35d;background:rgba(238,182,64,.16)}
+@media(max-width:1279px){#vendor-services>div>div>div>.mt-8.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:899px){#vendor-services>div>div>div>.mt-8.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:639px){#vendor-services>div>div>div>.mt-8.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:339px){#vendor-services>div>div>div>.mt-8.grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){#vendor-services .service-image-card,#vendor-services .service-image-card>div>svg{transition:none!important}#vendor-services .service-image-card:hover{transform:none}}
+
+/* Services page: the permanent category bar begins directly below the site header. */
+/* Licensing & Legal: compact documentation and compliance presentation. */
+#licensing-legal{position:relative;isolation:isolate;background-color:#132a46;background-image:radial-gradient(circle at 18% 22%,rgba(238,182,64,.18) 0 2px,transparent 3px),linear-gradient(135deg,rgba(12,39,70,.98),rgba(30,74,112,.95) 54%,rgba(20,107,112,.9));background-size:34px 34px,cover}
+#licensing-legal:before{content:"";position:absolute;inset:0;z-index:-1;opacity:.18;background-image:linear-gradient(90deg,transparent 49%,rgba(255,255,255,.18) 50%,transparent 51%),linear-gradient(transparent 49%,rgba(255,255,255,.14) 50%,transparent 51%);background-size:90px 90px;pointer-events:none}
+#licensing-legal>.mx-auto>div:first-child{display:block}
+#licensing-legal .service-side-image{display:none}
+#licensing-legal>.mx-auto>div:first-child>div:first-child{text-align:center}
+#licensing-legal>.mx-auto>div:first-child>div:first-child>div:first-child{justify-content:center;align-items:center}
+#licensing-legal>.mx-auto>div:first-child>div:first-child>p{margin-left:auto;margin-right:auto;color:rgba(240,249,255,.84)}
+#licensing-legal h2,#licensing-legal .service-image-card h3{color:#fff}
+#licensing-legal>div>div>div>div:first-child>p{color:rgba(255,255,255,.52)}
+#licensing-legal>div>div>div>div:first-child>span{background:#eeb640;color:#10263f}
+#licensing-legal>div>div>div>.mt-8.grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:.75rem}
+#licensing-legal .service-image-card{display:flex;min-height:126px;align-items:flex-start;text-align:left;background:rgba(255,255,255,.12);border-color:rgba(224,242,255,.3);box-shadow:0 10px 28px rgba(0,0,0,.14);backdrop-filter:blur(10px);color:#fff}
+#licensing-legal .service-image-card:nth-child(4n+2){background:rgba(39,117,148,.22)}#licensing-legal .service-image-card:nth-child(4n+3){background:rgba(73,54,111,.22)}#licensing-legal .service-image-card:nth-child(4n+4){background:rgba(172,118,22,.18)}
+#licensing-legal .service-image-card>img{display:none}
+#licensing-legal .service-image-card>div{padding:1rem}
+#licensing-legal .service-image-card>div>svg{color:#f3c35d;transition:transform .25s ease,color .25s ease}
+#licensing-legal .service-image-card h3{font-size:.84rem;line-height:1.25rem}
+#licensing-legal .service-image-card p{color:rgba(235,246,255,.72);font-size:.72rem;line-height:1.15rem}
+#licensing-legal .service-image-card span{display:none}
+#licensing-legal .service-image-card:hover{background:rgba(255,255,255,.19);border-color:rgba(238,182,64,.85);transform:translateY(-2px)}
+#licensing-legal .service-image-card:hover>div>svg{color:#fff;transform:translateY(-2px) scale(1.06)}
+#licensing-legal .service-image-card:focus-visible{outline-color:#f3c35d}
+#licensing-legal>div>div>div>.mt-8.flex{justify-content:center;margin-top:2rem}
+#licensing-legal>div>div>div>.mt-8.flex:before{content:"Need support with school registration, affiliation or compliance documentation?";flex-basis:100%;margin-bottom:.25rem;text-align:center;font-weight:700;color:#fff}
+#licensing-legal>div>div>div>.mt-8.flex .btn2{border-color:rgba(226,243,255,.65);background:rgba(255,255,255,.09);color:#fff}
+#licensing-legal .service-disclaimer{position:relative;margin-top:2rem;border-color:rgba(238,182,64,.38);background:rgba(255,248,224,.94);color:#5b4314;box-shadow:0 8px 24px rgba(0,0,0,.1)}
+@media(max-width:1199px){#licensing-legal>div>div>div>.mt-8.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:899px){#licensing-legal>div>div>div>.mt-8.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:419px){#licensing-legal>div>div>div>.mt-8.grid{grid-template-columns:1fr}#licensing-legal .service-image-card{min-height:0}}
+@media(prefers-reduced-motion:reduce){#licensing-legal .service-image-card,#licensing-legal .service-image-card>div>svg{transition:none!important}#licensing-legal .service-image-card:hover{transform:none}}
+/* Web & Digital: compact technology ecosystem presentation. */
+#digital-services{position:relative;isolation:isolate;background-color:#172d63;background-image:linear-gradient(115deg,rgba(12,32,82,.94),rgba(69,42,132,.88),rgba(0,131,164,.8)),url('/images/prism-official/web-digital-services-background.png');background-size:cover;background-position:center;background-attachment:scroll}
+#digital-services>.mx-auto>div:first-child{display:block}
+#digital-services .service-side-image{display:none}
+#digital-services>.mx-auto>div:first-child>div:first-child{text-align:center}
+#digital-services>.mx-auto>div:first-child>div:first-child>div:first-child{justify-content:center;align-items:center}
+#digital-services>.mx-auto>div:first-child>div:first-child>p{margin-left:auto;margin-right:auto;color:rgba(236,249,255,.87)}
+#digital-services h2,#digital-services .service-image-card h3{color:#fff}
+#digital-services>div>div>div>div:first-child>p{color:rgba(255,255,255,.52)}
+#digital-services>div>div>div>div:first-child>span{background:#eeb640;color:#10263f}
+#digital-services>div>div>div>.mt-8.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem}
+#digital-services .service-image-card{display:flex;min-height:138px;align-items:flex-start;text-align:left;background:rgba(41,70,151,.39);border-color:rgba(207,239,255,.32);box-shadow:0 12px 32px rgba(3,17,54,.2);backdrop-filter:blur(12px);color:#fff}
+#digital-services .service-image-card:nth-child(3n+2){background:rgba(94,53,158,.38)}#digital-services .service-image-card:nth-child(3n+3){background:rgba(0,126,158,.38)}
+#digital-services .service-image-card>img{display:none}
+#digital-services .service-image-card>div{padding:1.05rem}
+#digital-services .service-image-card>div>svg{color:#77e6ff;transition:transform .25s ease,color .25s ease}
+#digital-services .service-image-card h3{font-size:.9rem;line-height:1.3rem}
+#digital-services .service-image-card p{color:rgba(235,248,255,.75);font-size:.74rem;line-height:1.2rem}
+#digital-services .service-image-card span{display:none}
+#digital-services .service-image-card:hover{background:rgba(69,87,181,.58);border-color:rgba(238,182,64,.9);box-shadow:0 17px 38px rgba(3,17,54,.28);transform:translateY(-3px)}
+#digital-services .service-image-card:hover>div>svg{color:#f3c35d;transform:translateY(-2px) scale(1.08)}
+#digital-services .service-image-card:focus-visible{outline-color:#77e6ff}
+#digital-services>div>div>div>.mt-8.flex{justify-content:center;margin-top:2rem}
+#digital-services>div>div>div>.mt-8.flex:before{content:"Ready to strengthen your institution’s digital presence?";flex-basis:100%;margin-bottom:.3rem;text-align:center;font-weight:750;color:#fff}
+#digital-services>div>div>div>.mt-8.flex .btn2{border-color:rgba(213,242,255,.65);background:rgba(255,255,255,.09);color:#fff}
+#digital-services>div>div>div>.mt-8.flex .btn2:hover{border-color:#f3c35d;background:rgba(238,182,64,.16)}
+#digital-services>.mx-auto:after{content:"Services are customised according to institutional requirements, project scope, technical feasibility and mutually agreed terms.";display:block;margin-top:1.75rem;padding:1rem;border:1px solid rgba(210,240,255,.27);border-radius:.8rem;background:rgba(7,28,69,.48);color:rgba(235,248,255,.78);font-size:.75rem;line-height:1.25rem;text-align:center}
+@media(max-width:1023px){#digital-services>div>div>div>.mt-8.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:639px){#digital-services{background-position:45% center}#digital-services>div>div>div>.mt-8.grid{grid-template-columns:1fr}#digital-services .service-image-card{min-height:0}}
+@media(prefers-reduced-motion:reduce){#digital-services .service-image-card,#digital-services .service-image-card>div>svg{transition:none!important}#digital-services .service-image-card:hover{transform:none}}
+.services-mega-menu+section.relative.isolate{display:none}
+.service-sticky-nav{top:81px}
+.service-visual-section{scroll-margin-top:154px}
+@media(max-width:1279px){.service-sticky-nav{top:81px}}
+
+/* Homepage visual polish, scoped to existing homepage landmarks. */
+section:has(.ecosystem-card){position:relative;background:#edf4f5 url('/images/prism-hero.png') center/cover no-repeat}
+section:has(.ecosystem-card):before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(246,250,252,.96),rgba(238,247,246,.9))}
+section:has(.ecosystem-card)>div{position:relative}
+.ecosystem-card:nth-child(1){background:linear-gradient(145deg,#fff,#eaf3fb)}.ecosystem-card:nth-child(2){background:linear-gradient(145deg,#fff,#edf6e9)}.ecosystem-card:nth-child(3){background:linear-gradient(145deg,#fff,#fff4df)}.ecosystem-card:nth-child(4){background:linear-gradient(145deg,#fff,#f2ecf9)}.ecosystem-card:nth-child(5){background:linear-gradient(145deg,#fff,#e7f6f4)}
+.ecosystem-card:hover .ecosystem-icon{transform:translateY(-2px) rotate(-3deg)}.ecosystem-icon{transition:transform .25s ease}
+section:has(.service-showcase-card){position:relative;background:#10263f url('/images/prism-official/school-community.jpg') center/cover no-repeat}
+section:has(.service-showcase-card):before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(8,29,50,.95),rgba(19,71,82,.88))}
+section:has(.service-showcase-card)>div{position:relative}section:has(.service-showcase-card) .section-kicker{color:#f3c35d}section:has(.service-showcase-card) .section-heading{color:#fff}
+.service-showcase-card{position:relative;overflow:hidden;background-size:cover!important;background-position:center!important;border-color:rgba(255,255,255,.25)!important}
+.service-showcase-card:nth-child(1){background-image:linear-gradient(rgba(236,246,255,.93),rgba(246,251,255,.96)),url('/images/prism-official/school-workshop.jpg')!important}.service-showcase-card:nth-child(2){background-image:linear-gradient(rgba(237,247,235,.93),rgba(250,253,249,.96)),url('/images/prism-official/school-land-location-background.png')!important}.service-showcase-card:nth-child(3){background-image:linear-gradient(rgba(255,247,230,.93),rgba(255,251,243,.96)),url('/images/prism-official/school-material-marketplace-background.png')!important}.service-showcase-card:nth-child(4){background-image:linear-gradient(rgba(245,239,251,.94),rgba(252,249,255,.97)),url('/images/hero-slides/hero-upload-3.jpg')!important}.service-showcase-card:nth-child(5){background-image:linear-gradient(rgba(231,248,247,.93),rgba(248,253,252,.97)),url('/images/prism-hero.png')!important}
+section:has(article.min-w-\[250px\]){position:relative;background:#f8f3ff url('/images/prism-official/school-workshop.jpg') center/cover no-repeat}
+section:has(article.min-w-\[250px\]):before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(251,248,255,.95),rgba(238,247,252,.9))}
+section:has(article.min-w-\[250px\])>div{position:relative}section:has(article.min-w-\[250px\]) article{background:rgba(255,255,255,.86);backdrop-filter:blur(9px);box-shadow:0 14px 38px rgba(16,38,63,.1)}
+section:has(#land-marketplace-title){position:relative;background:#eaf4e8 url('/images/prism-official/school-land-location-background.png') center/cover no-repeat}
+section:has(#land-marketplace-title):before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(241,249,239,.94),rgba(228,242,232,.88))}
+section:has(#land-marketplace-title)>div{position:relative}section:has(#land-marketplace-title) div[aria-live="polite"]{grid-template-columns:repeat(2,minmax(0,1fr))}
+section:has(#material-marketplace-title){background-image:linear-gradient(120deg,rgba(242,249,252,.94),rgba(247,244,238,.91)),url('/images/prism-official/school-material-marketplace-background.png')!important;background-size:cover!important;background-position:center!important}
+section:has(#material-marketplace-title) div[aria-live="polite"]{grid-template-columns:repeat(2,minmax(0,1fr))}
+section:has(.md\:grid-cols-5) .md\:grid-cols-5{position:relative;isolation:isolate}
+section:has(.md\:grid-cols-5) .md\:grid-cols-5:before{content:"PRISM EDU\A Your Education Vision";white-space:pre;display:none;place-items:center;text-align:center;position:absolute;inset:50% auto auto 50%;translate:-50% -50%;width:12rem;height:12rem;border-radius:50%;background:#10263f url('/images/prism-official/prism-logo.jpg') center 1.5rem/5rem auto no-repeat;padding-top:5.5rem;color:#fff;font-weight:800;box-shadow:0 20px 55px rgba(16,38,63,.22);z-index:2}
+@media(min-width:900px){section:has(.md\:grid-cols-5) .md\:grid-cols-5{display:grid;grid-template-columns:repeat(5,1fr);padding-top:2rem}section:has(.md\:grid-cols-5) .md\:grid-cols-5:before{display:grid}section:has(.md\:grid-cols-5) .md\:grid-cols-5 article{border-radius:999px;min-height:13rem;display:flex;flex-direction:column;justify-content:center;z-index:3}section:has(.md\:grid-cols-5) .md\:grid-cols-5 article:nth-child(3){visibility:hidden}}
+@media(prefers-reduced-motion:reduce){.ecosystem-icon,.service-showcase-card,section:has(article.min-w-\[250px\]) article{transition:none!important}}
+@media(min-width:900px){section:has(.md\:grid-cols-5) .md\:grid-cols-5{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,auto)}section:has(.md\:grid-cols-5) .md\:grid-cols-5:before{position:static;grid-column:2;grid-row:2;translate:none;align-self:center;justify-self:center}section:has(.md\:grid-cols-5) .md\:grid-cols-5 article:nth-child(1){grid-column:1;grid-row:1}section:has(.md\:grid-cols-5) .md\:grid-cols-5 article:nth-child(2){grid-column:2;grid-row:1}section:has(.md\:grid-cols-5) .md\:grid-cols-5 article:nth-child(3){visibility:visible;grid-column:3;grid-row:1}section:has(.md\:grid-cols-5) .md\:grid-cols-5 article:nth-child(4){grid-column:1;grid-row:2}section:has(.md\:grid-cols-5) .md\:grid-cols-5 article:nth-child(5){grid-column:3;grid-row:2}}
+
+
+/* Principals and School Leadership Award session announcement */
+.leadership-award-backdrop{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;overflow-y:auto;padding:clamp(.75rem,2vw,1.5rem);background:rgba(3,14,29,.82);backdrop-filter:blur(5px);animation:award-backdrop-in .3s ease-out both}
+.leadership-award-dialog{position:relative;display:flex;max-height:88vh;max-width:min(704px,calc(100vw - 3rem));align-items:center;justify-content:center;animation:award-dialog-in .3s ease-out both}
+.leadership-award-poster-link{display:block;max-height:88vh;overflow:auto;border-radius:1rem;background:#fff;box-shadow:0 28px 90px rgba(0,0,0,.45);outline-offset:4px}
+.leadership-award-poster-link:focus-visible{outline:3px solid #f3c35d}
+.leadership-award-poster-link img{display:block;width:auto;max-width:100%;height:auto;max-height:88vh;object-fit:contain}
+.leadership-award-close{position:absolute;right:-14px;top:-14px;z-index:2;display:grid;width:46px;height:46px;place-items:center;border:2px solid rgba(255,255,255,.9);border-radius:999px;background:#10263f;color:#fff;box-shadow:0 8px 24px rgba(0,0,0,.35);transition:transform .2s ease,background-color .2s ease}
+.leadership-award-close:hover{transform:scale(1.06);background:#c68618}.leadership-award-close:focus-visible{outline:3px solid #f3c35d;outline-offset:3px}
+@keyframes award-backdrop-in{from{opacity:0}to{opacity:1}}@keyframes award-dialog-in{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
+@media(max-width:639px){.leadership-award-backdrop{padding:12px}.leadership-award-dialog{width:calc(100vw - 24px);max-width:none}.leadership-award-close{right:6px;top:6px}.leadership-award-poster-link,.leadership-award-poster-link img{max-height:88vh}}
+@media(prefers-reduced-motion:reduce){.leadership-award-backdrop,.leadership-award-dialog{animation:none}.leadership-award-close{transition:none}}
+/* Global Prism footer */
+.global-footer{position:relative;isolation:isolate;overflow:hidden;border-top:3px solid #eeb640;background:linear-gradient(115deg,rgba(5,24,43,.97),rgba(12,46,70,.96) 58%,rgba(38,35,73,.96)),url('/images/prism-official/school-community.jpg') center/cover;color:#d8e2ec}.global-footer:before{content:"";position:absolute;z-index:-1;width:28rem;height:28rem;right:-12rem;top:18rem;border-radius:50%;background:rgba(36,169,157,.1);filter:blur(20px)}
+.footer-cta{display:grid;gap:2rem;align-items:center;padding-block:clamp(2.5rem,5vw,4rem);border-bottom:1px solid rgba(255,255,255,.13)}.footer-eyebrow{margin-bottom:.65rem;color:#f3c35d;font-size:.73rem;font-weight:800;letter-spacing:.14em}.footer-cta h2{max-width:780px;color:#fff;font-size:clamp(1.8rem,3.6vw,3.25rem);font-weight:800;line-height:1.12}.footer-cta>div>p:last-child{max-width:760px;margin-top:1rem;color:#bac9d7;line-height:1.75}.footer-cta-actions{display:flex;flex-wrap:wrap;gap:.75rem}.footer-action{display:inline-flex;min-height:46px;align-items:center;justify-content:center;gap:.55rem;border:1px solid rgba(255,255,255,.22);border-radius:.8rem;padding:.7rem 1rem;color:#fff;font-size:.78rem;font-weight:800;transition:transform .2s ease,border-color .2s ease,background-color .2s ease}.footer-action:hover{transform:translateY(-2px);border-color:#f3c35d;background:rgba(255,255,255,.09)}.footer-action-primary{border-color:#eeb640;background:#eeb640;color:#10263f}.footer-action-primary:hover{background:#f3c35d;color:#10263f}.footer-action.is-disabled{cursor:not-allowed;opacity:.55}
+.footer-main{display:grid;gap:2.25rem;padding-block:clamp(3rem,6vw,5rem)}.footer-main h2{margin-bottom:1rem;color:#fff;font-size:.95rem;font-weight:800}.footer-brand img{width:170px;height:120px;border-radius:1rem;background:#fff;object-fit:contain}.footer-brand p{margin-top:1.1rem;font-size:.78rem;line-height:1.75;color:#c2ced9}.footer-brand strong{display:block;margin-top:1rem;color:#f3c35d;font-size:.78rem;line-height:1.55}.footer-socials{display:flex;gap:.55rem;margin-top:1.25rem}.footer-socials a,.footer-socials span{display:grid;width:38px;height:38px;place-items:center;border:1px solid rgba(255,255,255,.18);border-radius:50%;color:#fff;transition:.2s ease}.footer-socials a:hover{transform:translateY(-2px);border-color:#f3c35d;background:#eeb640;color:#10263f}.footer-socials .is-disabled{cursor:not-allowed;opacity:.45}.footer-link{display:flex;align-items:flex-start;gap:.45rem;margin:.72rem 0;color:#c8d3de;font-size:.77rem;line-height:1.5;transition:color .2s ease,transform .2s ease}.footer-link svg{flex:none;margin-top:.2rem;color:#eeb640}.footer-link:hover{transform:translateX(3px);color:#fff}.footer-contact{font-style:normal}.footer-contact div,.footer-contact a{display:flex;align-items:flex-start;gap:.65rem;margin:.8rem 0;color:#c8d3de;font-size:.78rem;line-height:1.6}.footer-contact svg{flex:none;margin-top:.15rem;color:#f3c35d}.footer-contact span{display:block}.footer-contact a:hover{color:#fff}
+.footer-disclaimer{display:grid;gap:.75rem;border-top:1px solid rgba(255,255,255,.12);padding-block:1.5rem;color:#aebdca;font-size:.72rem;line-height:1.65}.footer-disclaimer strong{color:#dce6ee}.footer-bottom{border-top:1px solid rgba(255,255,255,.12);background:rgba(2,15,28,.55)}.footer-bottom .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;padding-block:1.1rem;color:#aebdca;font-size:.72rem}.footer-bottom nav{display:flex;flex-wrap:wrap;gap:1rem}.footer-bottom a:hover{color:#f3c35d}.global-footer a:focus-visible{outline:2px solid #f3c35d;outline-offset:3px;border-radius:.25rem}
+@media(min-width:768px){.footer-main{grid-template-columns:repeat(2,minmax(0,1fr))}.footer-cta{grid-template-columns:minmax(0,1fr) auto}.footer-cta-actions{max-width:370px;justify-content:flex-end}}
+@media(min-width:1180px){.footer-main{grid-template-columns:1.35fr .8fr 1fr 1.05fr 1fr}}
+@media(max-width:767px){.footer-brand{text-align:center}.footer-brand img{margin-inline:auto}.footer-socials{justify-content:center}.footer-cta-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.footer-bottom .wrap{justify-content:center;text-align:center}.footer-bottom nav{justify-content:center}}
+@media(max-width:380px){.footer-cta-actions{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.footer-action,.footer-link,.footer-socials a{transition:none}}
+/* Expanded About page */
+.about-page-redesign{overflow:hidden;background:#fff}.about-sticky-nav{position:sticky;z-index:40;top:var(--about-header-height,74px);border-bottom:1px solid #dfe7ee;background:rgba(255,255,255,.96);box-shadow:0 8px 24px rgba(16,38,63,.07);backdrop-filter:blur(10px)}.about-sticky-nav>div{display:flex;width:min(1240px,100%);margin:auto;gap:.45rem;overflow-x:auto;padding:.7rem 1rem;scrollbar-width:none}.about-sticky-nav>div::-webkit-scrollbar{display:none}.about-sticky-nav a{flex:1;min-width:max-content;border:1px solid #dce5ec;border-radius:999px;padding:.68rem 1rem;text-align:center;color:#31506c;font-size:.78rem;font-weight:800;transition:.2s ease}.about-sticky-nav a:hover,.about-sticky-nav a.is-active{border-color:#10263f;background:#10263f;color:#fff}.about-sticky-nav a:focus-visible{outline:3px solid #eeb640;outline-offset:2px}.about-anchor-section{scroll-margin-top:calc(var(--about-header-height,74px) + 78px)}
+.about-introduction{position:relative;padding:clamp(4rem,8vw,7rem) 0;background:linear-gradient(105deg,rgba(7,29,51,.97),rgba(15,61,88,.91) 58%,rgba(57,53,99,.8)),url('/images/prism-hero.png') center/cover;color:#fff}.about-intro-grid{display:grid;gap:2.5rem;align-items:center}.about-introduction h1{margin-top:.8rem;max-width:760px;color:#fff;font-size:clamp(2.3rem,5vw,4.8rem);font-weight:800;line-height:1.06}.about-introduction p{max-width:760px;margin-top:1rem;color:rgba(255,255,255,.78);line-height:1.8}.about-intro-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.8rem}.about-support-grid{display:grid;gap:.8rem}.about-support-grid article{border:1px solid rgba(255,255,255,.15);border-radius:1.15rem;background:rgba(6,25,45,.65);padding:1.15rem}.about-support-grid h2{color:#f3c35d;font-size:.9rem;font-weight:800}.about-support-grid p{margin-top:.35rem;font-size:.78rem;line-height:1.55}.about-founder blockquote{border-left:3px solid #eeb640;padding-left:1rem;color:#31506c;font-weight:700;font-style:italic}
+.about-team-grid{display:grid;gap:1.5rem;margin-top:2.5rem}.about-detailed-profile{display:grid;overflow:hidden;border:1px solid #dfe7ee;border-radius:1.75rem;background:#fff;box-shadow:0 16px 45px rgba(16,38,63,.08)}.about-detailed-profile>img{width:100%;height:320px;object-fit:cover;object-position:top}.about-detailed-profile>div{display:flex;flex-direction:column;padding:clamp(1.35rem,3vw,2rem)}.about-detailed-profile h3{color:#10263f;font-size:1.45rem;font-weight:800}.about-detailed-profile strong,.digital-partner>strong{margin-top:.4rem;color:#b8790c;font-size:.82rem;line-height:1.55}.about-detailed-profile p{margin-top:1rem;color:#607084;line-height:1.7}.about-detailed-profile button,.digital-partner a{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.25rem;color:#10263f;font-size:.82rem;font-weight:800}.about-expertise-list{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.15rem}.about-expertise-list span{border-radius:999px;background:#edf4f7;padding:.45rem .65rem;color:#31506c;font-size:.7rem;font-weight:700}.about-profile-backdrop{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:1rem;background:rgba(4,18,31,.85)}.about-profile-modal{position:relative;max-height:88vh;width:min(850px,100%);overflow-y:auto;border-radius:1.75rem;background:#fff;padding:1.5rem}.about-profile-modal>button{display:grid;width:44px;height:44px;margin-left:auto;place-items:center;border-radius:50%;background:#edf2f5;color:#10263f}.about-profile-modal-grid{display:grid;gap:1.5rem}.about-profile-modal-grid>img{width:100%;height:320px;border-radius:1.25rem;object-fit:cover;object-position:top}.about-profile-modal h2{margin-top:.4rem;color:#10263f;font-size:2rem;font-weight:800}.about-profile-modal strong{display:block;margin-top:.4rem;color:#b8790c}.about-profile-modal p{margin-top:1rem;color:#607084;line-height:1.75}
+.about-partners-section{padding:clamp(4rem,7vw,6rem) 0;background:linear-gradient(135deg,#0c2945,#173f63 60%,#463867);color:#fff}.about-partners-section .section-heading{color:#fff}.about-partners-section .section-kicker{color:#f3c35d}.about-partners-section .mx-auto>p{color:rgba(255,255,255,.7)}.about-partner-grid{display:grid;gap:1.2rem;margin-top:2.5rem}.about-partner-grid article{border:1px solid rgba(255,255,255,.15);border-radius:1.5rem;background:rgba(255,255,255,.08);padding:1.5rem;box-shadow:0 16px 38px rgba(0,0,0,.13)}.about-partner-grid article>svg{color:#f3c35d}.about-partner-grid h3{margin-top:1rem;color:#fff;font-size:1.25rem;font-weight:800}.about-partner-grid p{margin-top:.8rem;color:rgba(255,255,255,.72);font-size:.82rem;line-height:1.7}.about-partner-grid small{display:block;margin-top:1rem;color:rgba(255,255,255,.5);line-height:1.6}.about-partner-grid .digital-partner{position:relative;padding-top:8rem}.digital-partner>img{position:absolute;top:1.35rem;right:1.35rem;width:92px;height:92px;border:3px solid rgba(255,255,255,.8);border-radius:1.15rem;object-fit:cover;object-position:top}.digital-partner a{color:#f3c35d}
+.about-client-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.85rem;margin-top:2.5rem}.about-client-grid article{display:flex;min-height:110px;align-items:center;gap:.8rem;border:1px solid #dae5ea;border-radius:1.2rem;background:#fff;padding:1.1rem;box-shadow:0 10px 25px rgba(16,38,63,.05)}.about-client-grid svg{flex:none;color:#d99a16}.about-client-grid h3{color:#10263f;font-size:.85rem;font-weight:800}.about-feature-card.dark{border-color:rgba(255,255,255,.12);background:rgba(255,255,255,.07);box-shadow:none}.about-feature-card.dark h2,.about-feature-card.dark h3{color:#fff}.about-feature-card.dark p{color:rgba(255,255,255,.68)}.about-gallery-item{position:relative;overflow:hidden;border-radius:1.25rem;background:#10263f}.about-gallery-item img{aspect-ratio:4/3;width:100%;object-fit:cover;object-position:top;transition:transform .35s ease}.about-gallery-item:hover img{transform:scale(1.025)}.about-gallery-item span{position:absolute;inset:auto 0 0;padding:2.5rem 1rem 1rem;background:linear-gradient(transparent,rgba(3,15,27,.9));color:#fff;font-size:.78rem;font-weight:800}.about-final-cta{position:relative;overflow:hidden;padding:clamp(4rem,8vw,6rem) 0;background:linear-gradient(120deg,#10263f,#49366f);text-align:center;color:#fff}.about-final-cta>img{position:absolute;right:5%;top:50%;width:240px;height:240px;transform:translateY(-50%);object-fit:contain;opacity:.045}.about-final-cta h2{color:#fff;font-size:clamp(2rem,5vw,4rem);font-weight:800}.about-final-cta p{max-width:760px;margin:1rem auto 0;color:rgba(255,255,255,.7);line-height:1.8}.about-final-cta .wrap>div{display:flex;flex-wrap:wrap;justify-content:center;gap:.75rem;margin-top:1.75rem}
+@media(min-width:768px){.about-intro-grid{grid-template-columns:1.15fr .85fr}.about-support-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.about-detailed-profile{grid-template-columns:260px 1fr}.about-detailed-profile>img{height:100%;min-height:390px}.about-profile-modal-grid{grid-template-columns:240px 1fr}.about-partner-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.about-client-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:639px){.about-final-cta .wrap>div{flex-direction:column}.about-final-cta a{width:100%}.about-sticky-nav a{flex:none}.about-intro-actions{flex-direction:column}.about-intro-actions a{width:100%}.about-profile-modal{padding:1rem}.about-client-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.about-sticky-nav a,.about-gallery-item img{transition:none}.about-page-redesign{scroll-behavior:auto}}
+/* About page visual refinements */
+#about-founder{background:linear-gradient(135deg,#fff 0%,#f3f8fb 60%,#fff8ea 100%)}#about-team{background:linear-gradient(120deg,rgba(244,247,250,.96),rgba(235,245,248,.94)),url('/images/prism-official/school-community.jpg') center/cover}.founder-highlights{display:flex;flex-wrap:wrap;gap:.55rem;margin-block:1.25rem}.founder-highlights span{border:1px solid #dce6eb;border-radius:999px;background:#fff;padding:.55rem .75rem;color:#31506c;font-size:.72rem;font-weight:800;box-shadow:0 5px 16px rgba(16,38,63,.05)}#about-founder blockquote{border-left:3px solid #eeb640;padding-left:1rem;color:#31506c;font-weight:700;font-style:italic}
+.about-team-grid{align-items:stretch}.about-detailed-profile{display:flex;height:100%;flex-direction:column}.about-detailed-profile>img{height:clamp(300px,34vw,410px);min-height:0;width:100%;object-fit:cover;object-position:center top}.about-detailed-profile>div{flex:1}.about-profile-intro{font-weight:700;color:#405970!important}.about-profile-copy p{margin-top:.8rem!important;font-size:.84rem;line-height:1.75}.about-expertise-list{margin-top:auto;padding-top:1rem}
+.digital-partner{display:flex;flex-direction:column}.about-partner-grid .digital-partner{padding-top:1.5rem}.digital-partner>img{position:static;width:100%;height:280px;margin-bottom:1.15rem;border:0;border-radius:1.15rem;object-fit:cover;object-position:center top}.digital-partner>a{margin-top:auto;padding-top:1rem}
+#about-values{position:relative;isolation:isolate;background:linear-gradient(120deg,rgba(247,252,255,.94),rgba(247,242,255,.92),rgba(255,248,232,.94)),url('/images/prism-official/school-workshop.jpg') center/cover}#about-values:before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(circle at 12% 18%,rgba(22,151,157,.14),transparent 25%),radial-gradient(circle at 88% 78%,rgba(238,182,64,.16),transparent 24%)}#about-values .value-card:nth-child(3n+1){background:linear-gradient(145deg,#fff,#eef8ff)}#about-values .value-card:nth-child(3n+2){background:linear-gradient(145deg,#fff,#f4efff)}#about-values .value-card:nth-child(3n){background:linear-gradient(145deg,#fff,#fff7e8)}#about-values .value-card{box-shadow:0 14px 36px rgba(16,38,63,.09)}#about-values .value-card:hover{transform:translateY(-5px);border-color:#eeb640;box-shadow:0 20px 45px rgba(16,38,63,.14)}#about-values .value-card:hover>svg{transform:translateY(-2px) rotate(-3deg)}#about-values .value-card>svg{transition:transform .25s ease}
+.about-reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}.about-reveal.is-visible{opacity:1;transform:none}
+@media(min-width:768px){.about-team-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.about-detailed-profile{grid-template-columns:none}.digital-partner>img{height:300px}}
+@media(max-width:767px){.about-detailed-profile>img{height:340px}.digital-partner>img{height:340px}}
+@media(prefers-reduced-motion:reduce){.about-reveal{opacity:1;transform:none;transition:none}#about-values .value-card>svg{transition:none}}
+/* Global journey gallery */
+.journey-gallery{overflow:hidden;background:radial-gradient(circle at 12% 15%,rgba(238,182,64,.16),transparent 28%),radial-gradient(circle at 88% 20%,rgba(70,73,163,.13),transparent 30%),linear-gradient(135deg,#f7fbff,#f4f7fa 48%,#fffaf0);padding:clamp(4rem,7vw,6rem) 0}
+.journey-gallery-heading{max-width:820px;margin-inline:auto;text-align:center}
+.journey-gallery-heading>img{width:74px;height:74px;margin:0 auto .75rem;object-fit:contain}
+.journey-gallery-heading>p:last-child{margin:1rem auto 0;max-width:760px;color:#526477;line-height:1.75}
+.journey-carousel{position:relative;height:clamp(330px,46vw,600px);margin-top:2.4rem;outline:none;touch-action:pan-y}
+.journey-carousel:focus-visible{border-radius:2rem;box-shadow:0 0 0 4px rgba(238,182,64,.45)}
+.journey-slide{position:absolute;top:50%;overflow:hidden;width:min(78%,980px);aspect-ratio:16/10;border:1px solid rgba(16,38,63,.12);border-radius:1.75rem;background:#10263f;box-shadow:0 24px 65px rgba(16,38,63,.19);transition:transform .7s ease,opacity .7s ease,filter .7s ease}
+.journey-slide img{width:100%;height:100%;object-fit:cover}
+.journey-slide-active{left:50%;z-index:3;transform:translate(-50%,-50%) scale(1);opacity:1}
+.journey-slide-previous{left:0;z-index:1;transform:translate(-34%,-50%) scale(.82);opacity:.48;filter:saturate(.75)}
+.journey-slide-next{right:0;z-index:1;transform:translate(34%,-50%) scale(.82);opacity:.48;filter:saturate(.75)}
+.journey-slide figcaption{position:absolute;inset:auto 0 0;padding:4rem 1.5rem 1.35rem;background:linear-gradient(transparent,rgba(4,18,32,.88));color:#fff;font-size:clamp(.88rem,1.4vw,1.1rem);font-weight:800;letter-spacing:.01em}
+.journey-control{position:absolute;top:50%;z-index:5;display:grid;width:48px;height:48px;place-items:center;transform:translateY(-50%);border:1px solid rgba(255,255,255,.65);border-radius:50%;background:rgba(16,38,63,.88);color:#fff;box-shadow:0 8px 24px rgba(16,38,63,.24);transition:background .2s ease,transform .2s ease}
+.journey-control:hover{background:#d99a16;transform:translateY(-50%) scale(1.06)}
+.journey-control:focus-visible,.journey-dots button:focus-visible{outline:3px solid #eeb640;outline-offset:3px}
+.journey-control-prev{left:max(1rem,4vw)}.journey-control-next{right:max(1rem,4vw)}
+.journey-dots{display:flex;justify-content:center;gap:.55rem;margin-top:1rem}
+.journey-dots button{width:10px;height:10px;border-radius:999px;background:#bac6d1;transition:width .25s ease,background .25s ease}
+.journey-dots button.active{width:32px;background:linear-gradient(90deg,#eeb640,#267ab0,#6c4aa4)}
+@media(max-width:767px){.journey-gallery-heading>img{width:62px;height:62px}.journey-carousel{height:auto;min-height:0;margin-top:1.75rem;padding-top:70%}.journey-slide{top:0;width:100%;aspect-ratio:auto;height:100%;border-radius:1.25rem}.journey-slide-active{left:0;transform:none}.journey-slide-previous,.journey-slide-next{display:none}.journey-control{top:50%;width:44px;height:44px}.journey-control-prev{left:.65rem}.journey-control-next{right:.65rem}.journey-slide figcaption{padding:3.5rem 1rem 1rem}}
+@media(prefers-reduced-motion:reduce){.journey-slide,.journey-control,.journey-dots button{transition:none}}

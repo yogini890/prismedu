@@ -1,0 +1,116 @@
+[
+  {
+    "id": "ravet-school-land-required",
+    "type": "required",
+    "title": "School Land Required in Ravet",
+    "location": "Ravet, Pune",
+    "area": "3,000 sq. ft.",
+    "transaction": "Lease",
+    "suitability": "School / education purpose",
+    "description": "Urgent land requirement for a school project in or around Ravet.",
+    "roadConnectivity": "Good approach road preferred",
+    "urgent": true,
+    "badges": [
+      "REQUIRED",
+      "URGENT"
+    ],
+    "active": true,
+    "featured": true,
+    "images": []
+  },
+  {
+    "id": "nashik-school-land",
+    "type": "available",
+    "title": "School Land Available in Nashik",
+    "location": "Nashik, Maharashtra",
+    "area": "3,000 sq. ft.",
+    "transaction": "Sale / Rent",
+    "suitability": "Suitable for school use",
+    "description": "School-suitable property offered for sale or rent in Nashik.",
+    "roadConnectivity": "Good road connectivity",
+    "price": "Price on request",
+    "badges": [
+      "AVAILABLE",
+      "FOR RENT",
+      "FOR SALE"
+    ],
+    "active": true,
+    "featured": true,
+    "images": []
+  },
+  {
+    "id": "wakad-preschool-land-required",
+    "type": "required",
+    "title": "Pre-primary School Land Required",
+    "location": "Wakad, Pune",
+    "area": "5,000 sq. ft.",
+    "transaction": "Rent",
+    "suitability": "Pre-primary school",
+    "description": "Property requirement for a professionally planned pre-primary school.",
+    "roadConnectivity": "Easy parent access preferred",
+    "badges": [
+      "REQUIRED",
+      "FOR RENT"
+    ],
+    "active": true,
+    "featured": true,
+    "images": []
+  },
+  {
+    "id": "hinjewadi-school-campus",
+    "type": "available",
+    "title": "School Campus Opportunity",
+    "location": "Hinjewadi, Pune",
+    "area": "1.5 Acres",
+    "transaction": "Lease",
+    "suitability": "K–12 school campus",
+    "description": "Land opportunity suitable for a new school campus on long-term lease.",
+    "roadConnectivity": "Connected to a major approach road",
+    "price": "Lease terms on request",
+    "badges": [
+      "AVAILABLE",
+      "FOR LEASE"
+    ],
+    "active": true,
+    "featured": true,
+    "images": []
+  },
+  {
+    "id": "thane-k12-land-required",
+    "type": "required",
+    "title": "K–12 School Land Required",
+    "location": "Thane West",
+    "area": "8,000 sq. ft.",
+    "transaction": "Sale / Lease",
+    "suitability": "K–12 school requirement",
+    "description": "Immediate school property requirement in Thane West.",
+    "roadConnectivity": "School-bus access required",
+    "urgent": true,
+    "badges": [
+      "REQUIRED",
+      "URGENT"
+    ],
+    "active": true,
+    "featured": true,
+    "images": []
+  },
+  {
+    "id": "aurangabad-education-land",
+    "type": "available",
+    "title": "Education Land Available",
+    "location": "Aurangabad, Maharashtra",
+    "area": "2 Acres",
+    "transaction": "Sale",
+    "suitability": "School / institutional use",
+    "description": "Large plot offered for a school or education institution.",
+    "roadConnectivity": "Wide access road",
+    "price": "Price on request",
+    "badges": [
+      "AVAILABLE",
+      "FOR SALE"
+    ],
+    "active": true,
+    "featured": true,
+    "images": []
+  }
+]

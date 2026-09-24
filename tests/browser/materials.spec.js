@@ -1,0 +1,50 @@
+import {test,expect} from '@playwright/test';
+
+test('materials admin lifecycle, shared cards, filters, cart safety and responsive layouts',async({page,context})=>{
+  test.setTimeout(360000);
+  await context.addInitScript(()=>{if(location.origin==='http://127.0.0.1:3101')sessionStorage.setItem('prism-principals-school-leadership-award-seen','true');});
+  const errors=[];context.on('page',p=>{p.on('pageerror',e=>errors.push(e.message));p.on('crash',()=>errors.push('Public page crashed'));});page.on('pageerror',e=>errors.push(e.message));page.on('crash',()=>errors.push('Admin page crashed'));
+  page.on('response',r=>{if(r.status()>=500)errors.push(r.status()+' '+r.url());});
+  await page.goto('/admin');await page.getByLabel('Email or username').fill('browser-admin');await page.getByLabel('Password',{exact:true}).fill('browser-test-only-password');await page.getByRole('button',{name:'Login',exact:true}).click();
+  await page.getByRole('link',{name:'School Material Listings',exact:true}).click();
+  await page.getByRole('button',{name:'Add Listing',exact:true}).click();
+  await page.getByLabel('Listing title').fill('QA Classroom Desks');await page.getByLabel('Location',{exact:false}).fill('Test Pune');
+  await page.getByLabel('Short description').fill('Sturdy desks for a brighter classroom.');await page.getByLabel('Detailed description').fill('Adjustable classroom desks with storage. A complete set ready for school use.');
+  await page.getByLabel('Quantity *',{exact:true}).fill('30');await page.getByLabel('Quantity unit').fill('Desks');
+  await page.getByLabel('Contact email').fill('private-owner@example.test');
+  await page.getByLabel('Upload images').setInputFiles(['tmp/test-property.png','tmp/test-property.png']);
+  await page.getByRole('button',{name:'Save Listing',exact:true}).click();await expect(page.locator('.sm-success[role="status"]')).toContainText('Listing saved');
+  const adminClick=async(record,name)=>{await page.bringToFront();await record.getByRole('button',{name,exact:true}).click();};
+  const row=()=>page.locator('.sm-admin-row').filter({has:page.getByRole('heading',{name:'QA Classroom Desks',exact:true})});
+  await adminClick(row(),'Preview');await expect(page.getByRole('dialog',{name:'Material preview'})).toBeVisible();await page.keyboard.press('Escape');await expect(page.getByRole('dialog')).toHaveCount(0);
+  const publicPage=await context.newPage();await publicPage.goto('/');await expect(publicPage.locator('#home-materials')).toContainText('QA Classroom Desks');
+  await publicPage.goto('/school-materials');const shop=publicPage.locator('#material-listings');await expect(shop.locator('.sm-card')).toHaveCount(9);
+  for(const [name,width] of [['desktop',1440],['tablet',768],['mobile',320]]){
+    await publicPage.setViewportSize({width,height:1000});await shop.scrollIntoViewIfNeeded();
+    await expect.poll(()=>publicPage.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBe(true);
+    const expectedColumns=width>=1050?3:width>620?2:1;
+    await expect.poll(()=>shop.locator('.sm-grid').evaluate(el=>getComputedStyle(el).gridTemplateColumns.split(' ').length)).toBe(expectedColumns);
+    await shop.screenshot({path:'tmp/materials-'+name+'.png'});
+    if(name==='mobile')await shop.locator('.sm-card').nth(1).screenshot({path:'tmp/materials-mobile-card.png'});
+  }
+  await publicPage.setViewportSize({width:1440,height:1000});
+  await shop.getByLabel('Search materials',{exact:true}).fill('QA Classroom');
+  await shop.getByRole('combobox',{name:'Listing nature',exact:true}).selectOption('Available');await shop.getByRole('combobox',{name:'Transaction type',exact:true}).selectOption('For Sale');await shop.getByRole('combobox',{name:'Condition',exact:true}).selectOption('New');await shop.getByRole('combobox',{name:'Category',exact:true}).selectOption('Classroom Furniture');await shop.getByRole('combobox',{name:'Location',exact:true}).selectOption('Test Pune');await shop.getByRole('button',{name:'Search',exact:true}).click();await expect(shop.locator('.sm-card')).toHaveCount(1);
+  await shop.getByRole('combobox',{name:'Listing nature',exact:true}).selectOption('Required');await shop.getByRole('button',{name:'Search',exact:true}).click();await expect(shop).toContainText('No matching materials');
+  await shop.getByRole('button',{name:'Clear Filters'}).click();await expect(shop.locator('.sm-card')).toHaveCount(9);for(const select of await shop.locator('select').all())await expect(select).toHaveValue('');await expect(shop.getByLabel('Search materials',{exact:true})).toHaveValue('');
+  const card=()=>shop.locator('.sm-card').filter({has:publicPage.getByRole('heading',{name:'QA Classroom Desks',exact:true})});
+  await card().getByRole('button',{name:'Add QA Classroom Desks to cart'}).click();await expect(card()).toContainText('Added to cart');
+  await card().getByRole('link',{name:'View Details'}).click();await expect(publicPage.getByRole('heading',{level:1})).toHaveText('QA Classroom Desks');await expect(publicPage.locator('.sm-gallery img')).toHaveCount(1);await publicPage.bringToFront();await publicPage.reload();await expect(publicPage.getByRole('heading',{level:1})).toHaveText('QA Classroom Desks');
+  await page.bringToFront();
+  await adminClick(row(),'Edit');await page.getByLabel('Short description').fill('Updated classroom desk description.');await page.getByRole('button',{name:'Save Listing',exact:true}).click();await expect(page.locator('.sm-success[role="status"]')).toContainText('Listing saved');
+  await publicPage.bringToFront();await publicPage.reload();await expect(publicPage.locator('.sm-details .sm-card')).toContainText('Updated classroom desk description.');
+  await adminClick(row(),'Mark as Sold Out');await expect(row()).toContainText('Sold Out');await publicPage.bringToFront();await publicPage.reload();await expect(publicPage.locator('.sm-completed')).toHaveText('SOLD OUT');await expect(publicPage.getByRole('button',{name:'Add QA Classroom Desks to cart'})).toHaveCount(0);
+  await publicPage.goto('/school-materials/cart');await expect(publicPage.getByRole('button',{name:'Request Order / Quotation'})).toBeDisabled();await expect(publicPage.locator('.sm-cart-row')).toContainText('Sold Out');
+  await adminClick(row(),'Restore as Available');await expect(row().locator('strong')).toHaveText('Active');await publicPage.bringToFront();await publicPage.reload();await expect(publicPage.getByRole('button',{name:'Request Order / Quotation'})).toBeEnabled();await publicPage.getByRole('button',{name:'Request Order / Quotation'}).click();await expect(publicPage.getByRole('link',{name:'Continue on WhatsApp to send your request'})).toHaveAttribute('href',/https:\/\/wa.me\/919518963309/);
+  const rental=page.locator('.sm-admin-row').filter({has:page.getByRole('heading',{name:'Computer Lab Setup',exact:true})});await adminClick(rental,'Mark as Rented');await expect(rental).toContainText('Rented');await publicPage.goto('/school-materials/computer-lab-setup');await expect(publicPage.locator('.sm-completed')).toHaveText('RENTED');await expect(publicPage.getByRole('button',{name:'Enquire with Prism'})).toHaveCount(0);await adminClick(rental,'Restore as Available');
+  await adminClick(row(),'Deactivate');await expect(row().locator('strong')).toHaveText('Inactive');await publicPage.goto('/school-materials');await expect(shop).not.toContainText('QA Classroom Desks');
+  await adminClick(row(),'Activate');await expect(row().locator('strong')).toHaveText('Active');await publicPage.bringToFront();await publicPage.reload();await expect(card()).toBeVisible();
+  await adminClick(row(),'Delete');await page.getByRole('dialog',{name:'Confirm deletion'}).getByRole('button',{name:'Cancel',exact:true}).click();await expect(row()).toBeVisible();await adminClick(row(),'Delete');await page.getByRole('button',{name:'Confirm Delete',exact:true}).click();await expect(row()).toHaveCount(0);await publicPage.bringToFront();await publicPage.reload();await expect(shop).not.toContainText('QA Classroom Desks');
+  await page.bringToFront();await page.getByRole('button',{name:'Log out',exact:true}).click();await expect(page).toHaveURL(/admin\/login/);await page.goto('/admin/school-materials');await expect(page).toHaveURL(/admin\/login/);
+  expect(errors).toEqual([]);
+});

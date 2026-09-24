@@ -1,0 +1,242 @@
+[
+  {
+    "id": "student-benches-50",
+    "type": "available",
+    "category": "Classroom Furniture",
+    "title": "Student Benches Available",
+    "description": "Strong dual-seat benches suitable for classrooms.",
+    "quantity": "50 Units",
+    "condition": "Pre-Owned",
+    "transaction": "For Sale",
+    "location": "Pune",
+    "price": "Price on request",
+    "badges": [
+      "AVAILABLE",
+      "FOR SALE"
+    ],
+    "orderable": true,
+    "active": true,
+    "featured": true,
+    "images": []
+  },
+  {
+    "id": "smart-boards-required",
+    "type": "required",
+    "category": "Smart Classroom",
+    "title": "Smart Boards Required",
+    "description": "Interactive boards required for a school upgrade.",
+    "quantity": "5 Units",
+    "condition": "Either",
+    "transaction": "Urgent Required",
+    "location": "Pimpri-Chinchwad",
+    "badges": [
+      "REQUIRED",
+      "URGENT"
+    ],
+    "orderable": false,
+    "urgent": true,
+    "active": true,
+    "featured": true,
+    "images": []
+  },
+  {
+    "id": "computer-lab-setup",
+    "type": "available",
+    "category": "Computers",
+    "title": "Computer Lab Setup",
+    "description": "Complete desktop systems suitable for a school lab.",
+    "quantity": "20 Computers",
+    "condition": "Pre-Owned",
+    "transaction": "For Lease",
+    "location": "Nashik",
+    "price": "Rent on request",
+    "badges": [
+      "AVAILABLE",
+      "FOR LEASE"
+    ],
+    "orderable": false,
+    "active": true,
+    "featured": true,
+    "images": []
+  },
+  {
+    "id": "science-lab-set",
+    "type": "available",
+    "category": "Lab Equipment",
+    "title": "Science Lab Equipment",
+    "description": "Complete mixed science laboratory equipment set.",
+    "quantity": "1 Complete Set",
+    "condition": "New",
+    "transaction": "For Sale",
+    "location": "Mumbai",
+    "price": "Quotation available",
+    "badges": [
+      "AVAILABLE",
+      "FOR SALE",
+      "NEW"
+    ],
+    "orderable": true,
+    "active": true,
+    "featured": true,
+    "images": []
+  },
+  {
+    "id": "library-books-required",
+    "type": "required",
+    "category": "Books",
+    "title": "Library Books Required",
+    "description": "Primary-school library books required in bulk.",
+    "quantity": "Bulk Requirement",
+    "condition": "Pre-Owned",
+    "transaction": "Second-Hand Required",
+    "location": "Thane",
+    "badges": [
+      "REQUIRED",
+      "BULK"
+    ],
+    "orderable": false,
+    "active": true,
+    "featured": true,
+    "images": []
+  },
+  {
+    "id": "sports-equipment",
+    "type": "available",
+    "category": "Sports",
+    "title": "Sports Equipment",
+    "description": "Mixed indoor and outdoor school sports equipment.",
+    "quantity": "Multiple Items",
+    "condition": "New",
+    "transaction": "For Sale",
+    "location": "Pune",
+    "price": "Price on request",
+    "badges": [
+      "AVAILABLE",
+      "FOR SALE"
+    ],
+    "orderable": true,
+    "active": true,
+    "featured": true,
+    "images": []
+  },
+  {
+    "id": "benches-required-100",
+    "type": "required",
+    "category": "Classroom Furniture",
+    "title": "Student Benches Required",
+    "description": "Benches needed for a new school setup.",
+    "quantity": "100 Units",
+    "condition": "New",
+    "transaction": "Required",
+    "location": "Ravet",
+    "badges": [
+      "REQUIRED",
+      "BULK"
+    ],
+    "orderable": false,
+    "active": true,
+    "featured": true,
+    "images": []
+  },
+  {
+    "id": "uniforms-required",
+    "type": "required",
+    "category": "Uniforms",
+    "title": "School Uniforms Required",
+    "description": "Complete student uniform sets for bulk order.",
+    "quantity": "500 Sets",
+    "condition": "New",
+    "transaction": "Required",
+    "location": "Maharashtra",
+    "badges": [
+      "REQUIRED",
+      "BULK"
+    ],
+    "orderable": false,
+    "active": true,
+    "featured": true,
+    "images": []
+  },
+  {
+    "id": "school-bus",
+    "type": "available",
+    "category": "School Bus / Transport",
+    "title": "School Bus Available",
+    "description": "School-ready bus available for sale or lease.",
+    "quantity": "1 Vehicle",
+    "condition": "Pre-Owned",
+    "transaction": "For Lease",
+    "location": "Maharashtra",
+    "price": "Price on request",
+    "badges": [
+      "AVAILABLE",
+      "FOR SALE",
+      "FOR LEASE"
+    ],
+    "orderable": false,
+    "active": true,
+    "featured": true,
+    "images": []
+  },
+  {
+    "id": "cctv-required",
+    "type": "required",
+    "category": "Other",
+    "title": "CCTV Setup Required",
+    "description": "Campus security system with installation required.",
+    "quantity": "Complete Campus",
+    "condition": "New",
+    "transaction": "Urgent Required",
+    "location": "Pune",
+    "badges": [
+      "REQUIRED",
+      "URGENT"
+    ],
+    "orderable": false,
+    "urgent": true,
+    "active": true,
+    "featured": true,
+    "images": []
+  },
+  {
+    "id": "stationery-package",
+    "type": "available",
+    "category": "Stationery",
+    "title": "School Stationery Package",
+    "description": "Bulk notebooks, registers, files and exam stationery.",
+    "quantity": "Bulk Supply",
+    "condition": "New",
+    "transaction": "For Sale",
+    "location": "Mumbai",
+    "price": "Bulk quotation",
+    "badges": [
+      "AVAILABLE",
+      "NEW"
+    ],
+    "orderable": true,
+    "active": true,
+    "featured": true,
+    "images": []
+  },
+  {
+    "id": "playground-setup",
+    "type": "available",
+    "category": "Playground",
+    "title": "Kids Playground Setup",
+    "description": "Outdoor kindergarten play equipment available.",
+    "quantity": "Complete Setup",
+    "condition": "Pre-Owned",
+    "transaction": "For Lease",
+    "location": "Navi Mumbai",
+    "price": "Lease on request",
+    "badges": [
+      "AVAILABLE",
+      "FOR LEASE",
+      "PRE-OWNED"
+    ],
+    "orderable": false,
+    "active": true,
+    "featured": true,
+    "images": []
+  }
+]
